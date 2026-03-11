@@ -10,31 +10,31 @@ This skill enables Claude.ai to apply **30 curated modern design styles** when g
 
 ---
 
-## 🚀 How to Use (사용 방법)
+## 🚀 How to Use
 
-이 섹션에서는 각 AI 플랫폼에서 이 디자인 스킬을 설정하고 사용하는 방법을 안내합니다.
+This section guides you on how to set up and use this design skill across different AI platforms.
 
 ### 1. Claude.ai (Projects)
-Claude의 프로젝트 기능을 활용하여 디자인 전문가로 만들 수 있습니다.
-- **설치**: 
-  1. Claude.ai에서 새로운 **Project**를 생성합니다.
-  2. **Project Knowledge**에 `SKILL.md`와 `references/styles.md` 파일을 업로드합니다.
-- **사용**: 프로젝트 채팅에서 "PPTX 내용을 구성해줘"라고 요청하면, Claude가 지식 베이스의 스타일 가이드를 바탕으로 30가지 테마 중 최적의 디자인을 적용합니다.
+Turn Claude into your personal presentation design expert using the Projects feature.
+- **Setup**: 
+  1. Create a new **Project** in Claude.ai.
+  2. Upload `SKILL.md` and `references/styles.md` to the **Project Knowledge**.
+- **Usage**: Ask in the project chat, e.g., "Create an outline for a PPTX deck". Claude will reference the knowledge base to apply the most optimal design from the 30 themes.
 
 ### 2. Gemini Antigravity (Local Skill)
-Antigravity 에이전트의 로컬 스킬 시스템에 등록하여 사용합니다.
-- **설치**: 
-  1. 이 저장소를 로컬의 스킬 디렉토리(`~/.gemini/antigravity/skills/`)로 복사하거나 심볼릭 링크를 생성합니다.
+Register this repository in the Antigravity agent's local skill system.
+- **Setup**: 
+  1. Clone or symlink this repository to your local skills directory (`~/.gemini/antigravity/skills/`).
   ```bash
   ln -s $(pwd) ~/.gemini/antigravity/skills/pptx-design-styles
   ```
-- **사용**: Antigravity가 자동으로 스킬을 감지하며, "현대적인 느낌의 발표 자료를 만들어줘"와 같은 요청 시 `SKILL.md`의 트리거 조건에 따라 디자인 프로세스가 활성화됩니다.
+- **Usage**: Antigravity automatically detects the skill. When prompt with a request like "Make a modern presentation deck," the design process is triggered based on the conditions defined in `SKILL.md`.
 
 ### 3. Codex (Agent Skill)
-Codex 에이전트 환경에서 디자인 가이드라인을 통합합니다.
-- **설치**: 
-  1. Codex 워크스페이스의 스킬 폴더(`.codex/skills/` 또는 지정된 경로)에 이 프로젝트를 추가합니다.
-- **사용**: 에이전트가 코딩 및 문서 작업 중 PPTX 관련 컨텍스트를 감지하면 `SKILL.md`에 정의된 30가지 스타일 규격에 맞춰 슬라이드 구성과 스타일 코드를 생성합니다.
+Integrate these design guidelines within the Codex agent environment.
+- **Setup**: 
+  1. Add this project to the skills folder in your Codex workspace (e.g., `.codex/skills/` or a designated path).
+- **Usage**: When the agent detects presentation-related context during coding or drafting, it generates slide structures and styling codes following the 30 style specifications outlined in `SKILL.md`.
 
 ---
 
