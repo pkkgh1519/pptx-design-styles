@@ -1,6 +1,6 @@
 # 🎨 PPTX Modern Design Styles Skill
 
-[English](README.md) | [한국어](README_ko.md) | [Design Preview 🌈](https://corazzon.github.io/pptx-design-styles/preview/modern-pptx-designs-30.html)
+[English](README.md) | [한국어](README_ko.md) | [Design Preview 🖼️](https://corazzon.github.io/pptx-design-styles/preview/modern-pptx-designs-30.html)
 
 > A Claude.ai skill for creating visually stunning presentations — 30 modern design styles included
 
