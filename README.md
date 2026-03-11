@@ -1,5 +1,7 @@
 # 🎨 PPTX Modern Design Styles Skill
 
+[English](README.md) | [한국어](README_ko.md)
+
 > A Claude.ai skill for creating visually stunning presentations — 30 modern design styles included
 
 ---
