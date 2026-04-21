@@ -1,4 +1,4 @@
-# 30 Modern PPTX Design Styles — Reference Guide
+# 35 Modern PPTX Design Styles — Reference Guide
 
 Each style is documented with:
 - **Background** — slide background color / gradient
@@ -1235,3 +1235,558 @@ Each style is documented with:
 - Digital-looking crisp shapes
 - Dark backgrounds
 - Screen-blend mode (must be multiply for authentic CMYK overlap)
+
+---
+
+## 31. Workshop Playbook
+
+**Mood**: Trust-building, guided, educational, quietly technical
+**Best For**: Workshops, onboarding decks, tutorials, internal playbooks, guided explainers
+**Reference Template**: `assets/templates/workshop-playbook-template.pptx`
+
+### Background
+- All content slides: cool mist `#F5F7FB` (the single canonical background)
+- Hero slide (cover): full-bleed photography or product screenshot with dark navy overlay `#314867` at 55–70% opacity, centered headline + subtitle + rounded keyword chips
+- No warm off-white alternate — use `#F5F7FB` consistently for visual unity
+
+### Colors
+
+**Core Palette**
+
+| Role | Color | HEX |
+|------|-------|-----|
+| Canvas (all content slides) | Cool mist | `#F5F7FB` |
+| Card surface | White | `#FFFFFF` |
+| Title / key heading | Deep navy ink | `#162338` |
+| Body copy | Slate gray | `#7B8697` |
+| Secondary body / subtitle | Medium navy | `#445066` |
+| Metadata / slide number | Light steel | `#9AA3B2` |
+| Divider line | Mist blue | `#D9DFEA` |
+| Card border | Light blue-gray | `#E4E8F0` |
+
+**Accent Palette (rotate per section)**
+
+| Role | Color | HEX | When |
+|------|-------|-----|------|
+| Primary accent | Trust blue | `#5D8EF5` | Default, intro, closing, step badges |
+| Positive / permission | Soft green | `#64B88C` | Approval, success, architecture layers |
+| Warning / before-state | Soft coral | `#F08A7F` | Before/after, warnings, security alerts |
+| Highlight / CTA | Warm gold | `#F5C451` | Terminal dot, CTA buttons, emphasis |
+
+**Derived Tint Colors (auto-calculate from accents)**
+
+| Base Accent | Tinted Fill | Tinted Border | Usage |
+|-------------|-------------|---------------|-------|
+| Coral `#F08A7F` | `#FEF0EE` | `#F3D7D4` | Before-state cards, warning callouts |
+| Green `#64B88C` | `#EEFBF4` | `#C8E6D6` | After-state cards, success callouts |
+| Blue `#5D8EF5` | `#EEF3FE` | `#D0DFFC` | Info cards, default highlight |
+| Gold `#F5C451` | `#FFF8E6` | `#F5E4A8` | Tip/highlight callouts |
+
+**Code Panel Colors (Tailwind Slate-900 family)**
+
+| Role | Color | HEX |
+|------|-------|-----|
+| Code panel background | Slate 950 | `#0F172A` |
+| Code panel header bar | Slate 900 | `#111827` |
+| Code panel border | Slate 800 | `#1F2937` |
+| Terminal dot — red | Soft red | `#E3657B` |
+| Terminal dot — yellow | Warm gold | `#F5C451` |
+| Terminal dot — green | Soft green | `#64B88C` |
+
+### Fonts
+- **Slide title (hero)**: NanumSquare Bold, 36–42pt, `#FFFFFF` on dark overlay
+- **Section heading**: NanumSquare Bold, 23pt, `#162338`
+- **Card heading / label**: NanumSquare Bold, 16pt, `#162338` or accent color
+- **Badge pill text**: NanumSquare Bold, 10pt, `#FFFFFF` on accent fill
+- **Body copy**: Noto Sans CJK KR Regular, 11–12pt, `#7B8697`
+- **Metadata / slide number**: Noto Sans CJK KR Bold, 9pt, `#9AA3B2`
+- **Code / technical**: JetBrains Mono / D2Coding, 10–12pt, light on dark panel
+- **Keyword chips (hero)**: NanumSquare Bold, 10–11pt, `#FFFFFF` on semi-transparent dark pill
+
+### Layout Structure
+
+**Header Zone (consistent across all content slides)**
+- Top-left: section badge pill (rounded rect, accent fill, white text)
+- Below badge: large headline (NanumSquare Bold, 23pt, `#162338`)
+- Below headline: subtitle (Noto Sans CJK KR, 11pt, `#7B8697`)
+- Top-right: slide number (2-digit, `#9AA3B2`)
+- Horizontal divider line (`#D9DFEA`, 1pt) separating header from content
+
+**Content Zone — 9 Canonical Slide Types**
+
+1. **Hero/Cover**: full-bleed photo + navy overlay, centered headline + subtitle + keyword chips row
+2. **Statistics Cards**: 2–4 column white cards, each with top accent bar, large stat number (29pt), source citation, and bottom info tray
+3. **Before/After Comparison**: left card (coral tint `#FEF0EE`) vs right card (green tint `#EEFBF4`), chevron `›` connector between, bottom summary row with 3 icon+text items
+4. **Step-by-step vertical**: numbered circle badges + arrow connectors, 3–4 rows, each row = number + title + description + deliverable
+5. **Feature Grid (2×2 or 1×4)**: icon in colored circle + label + description per cell, thin dividers between
+6. **Text + Code Split (45/55)**: left = explanation cards or bullet list, right = dark code panel (`#0F172A`) with macOS-style header dots + filename label in header bar; code uses syntax highlighting — keywords green `#64B88C`, class/function names gold `#F5C451`, strings coral `#F08A7F`, comments `#64748B`, base text `#CBD5E1`; optional `⚠` warning icon for dangerous sections; bottom can hold accent-fill insight tray (accent background e.g. `#5D8EF5` + white text) as alternative to bordered tray
+7. **Layer/Architecture Cards**: stacked horizontal cards with **left accent border** (4–5px vertical color bar on left edge, color = layer's accent in rotation: blue → gold → coral → green), numbered or icon-prefixed with matching accent circle, optional code panel on right with syntax-highlighted content and filename header
+8. **Habit/Action 3-Column**: 3 equal white cards with top accent bar (different color each), icon circle, "HABIT 0X" label, centered heading + description, bottom CTA footer (dark navy `#273A59` bar with gold button)
+9. **Closing Checklist**: numbered step circles (semi-transparent blue at 22% opacity), step title + description list
+
+**Card Architecture (3-layer standard)**
+- Outer container: roundRect, fill `#FFFFFF`, border `#E4E8F0` 1pt, shadow (blur 25400 EMU, offset 12700 EMU, 18% opacity)
+- Top accent bar: roundRect, full-width, height ~5px equivalent, fill = section accent color
+- Inner content: text blocks with consistent padding (~0.25" / 18288 EMU)
+
+### Signature Elements
+- **Section badge pill**: rounded rectangle, accent fill, white text (10pt NanumSquare Bold) — positioned top-left, can show "STEP 0X", "ARCHITECTURE", "FINAL PROMPT", section names like "도입", "원리", "도구", "보안", "실전", "마무리"
+- **Top accent bar on every card**: thin colored strip (~5px) at the card top edge, matching the slide's dominant accent
+- **Semi-transparent circle indicators**: 16–22% opacity accent fills, used as visual markers next to icons, stats, or numbered items
+- **macOS-style code window**: dark panel (`#0F172A`) with header bar (`#111827`) containing three dots (red `#E3657B`, yellow `#F5C451`, green `#64B88C`), filename label + optional token count/metadata in header; syntax highlighting: keywords `#64B88C`, class/function names `#F5C451`, strings `#F08A7F`, comments `#64748B`, base `#CBD5E1`; optional `⚠` warning icon for danger sections
+- **Left accent border (Layer cards)**: 4–5px vertical color bar on left edge of stacked Architecture/Layer cards; each layer gets a different accent in rotation (blue → gold → coral → green)
+- **Icon circle color rotation**: icon circles in Feature Grid and Layer cards follow sequential accent assignment — blue → gold → coral → green — matching card's dominant accent
+- **Chevron connectors**: `›` or `→` arrows between before/after cards or between sequential steps
+- **Info/insight tray**: bottom-spanning bar with `i` icon + "핵심 시사점" / "한 줄 결론" pattern; two variants — (a) bordered container on light background, (b) accent-fill tray (e.g. blue `#5D8EF5` fill + white text)
+- **CTA footer bar**: dark navy background (`#273A59`) spanning slide width, with action text + gold (`#F5C451`) rounded button ("Start Now →")
+- **Keyword chips (hero only)**: row of rounded pills with semi-transparent dark background, white text, used for topic hashtags
+- **Slide number**: 2-digit zero-padded, top-right corner, `#9AA3B2`, 9pt
+
+### Color Rotation Per Section
+- Each section gets ONE dominant accent color for its badge, card bars, and highlights
+- A slide may use at most 1 dominant + 2 support accents
+- Common rotation: Blue (intro) → Coral (problem/before) → Green (solution/after) → Blue (tools) → Coral (security) → Blue (closing)
+- Comparison slides use two accents (coral left, green right)
+
+### Avoid
+- Loud gradients or neon effects across content slides
+- Dense text-only bullet pages without cards, panels, or diagrams
+- Thick brutalist borders or heavy blurred shadows (keep shadow at max 18% opacity)
+- Random accent colors on every slide — follow the section rotation system
+- Centering long body text; reserve centering for hero-slide headlines and card internals only
+- Using `#F8F8F2` warm off-white — stick to `#F5F7FB` cool mist for consistency
+- Code panel colors lighter than Slate-900 family — keep `#0F172A` / `#111827` for proper contrast
+- Flat cards without top accent bar or shadow — every card needs the 3-layer architecture
+- Accent lines under titles (hallmark of generic AI slides) — use whitespace or divider line instead
+
+---
+
+## 32. Dark Command Dashboard
+
+**Mood**: Commanding, technical, structured, dark-UI dashboard  
+**Best For**: Developer pitch decks, AI/SaaS product overviews, tech startup investor decks, team/department showcases
+
+### Background
+- Primary slide background: near-black `#0F0F0F`
+- Card surface fill: dark charcoal `#1A1A1A`
+- TOC / alternate background: `#1A1A1A`
+
+### Colors
+| Role | Color | HEX |
+|------|-------|-----|
+| Primary background | Near-black | `#0F0F0F` |
+| Card surface | Dark charcoal | `#1A1A1A` |
+| Primary accent | Tomato coral | `#FF6347` |
+| Title text | Pure white | `#FFFFFF` |
+| Subtitle text | Soft gray | `#B0B0B0` |
+| Body text | Medium gray | `#999999` / `#888888` |
+| Secondary body | Light gray | `#CCCCCC` |
+| Muted label | Dim gray | `#666666` |
+| Department accent 1 | Tomato coral | `#FF6347` |
+| Department accent 2 | Teal | `#4ECDC4` |
+| Department accent 3 | Sky blue | `#45B7D1` |
+| Department accent 4 | Warm gold | `#F7DC6F` |
+| Department accent 5 | Soft purple | `#BB8FCE` |
+| Department accent 6 | Red | `#E74C3C` |
+
+### Fonts
+- Title: **Arial Black**, 36–80pt
+- Section heading: **Arial Bold**, 28–40pt
+- Card title: **Arial Bold**, 18–22pt
+- Body: **Arial Regular**, 14–16pt
+- Label / caption: **Arial Regular**, 10–12pt
+
+### Layout
+- **Widescreen** 13.33" x 7.50" (16:9)
+- **Cover slide**: logo top-left, coral accent tagline, massive centered title, gray subtitle, footer metadata row
+- **TOC slide**: numbered coral rounded-rect badges (01–06) with white section titles, horizontal separator rules, decorative oversized "Contents" text bottom-left
+- **Content slides**: coral section-number badge top-left, large headline (coral keyword + white remainder), page number top-right
+- **Card grids**: 3x2 or 2x2 dark card grids with generous gutter spacing
+- **Feature list**: stacked horizontal dark cards with colored accent title and gray description
+
+### Signature Elements
+- **Coral rounded-rect number badges**: small `#FF6347` filled rectangles with white "01"–"06" numbers, placed beside section headings
+- **Colored left-border accent lines**: thin vertical color bars on the left edge of dark cards, rotating through the 6-color department palette
+- **Dark card containers**: `#1A1A1A` filled rounded rectangles on `#0F0F0F` background
+- **Oversized section numbers**: large colored numerals (01, 02, ...) inside cards alongside department names
+- **6-color rotating department palette**: cycle through coral → teal → sky blue → gold → purple → red across parallel cards/items
+- **Consistent page numbering**: small gray page indicator in top-right corner
+
+### Avoid
+- Light or white backgrounds (destroys the dark dashboard aesthetic)
+- Gradients or transparency effects (this style uses flat, solid fills only)
+- More than one accent color per single card (each card gets one color from the rotation)
+- Decorative icons or illustrations — keep it typographic and structural
+- Thick borders or drop shadows — the style relies purely on fill contrast (#1A1A1A on #0F0F0F)
+
+---
+
+## 33. Workshop Playbook (Dark)
+
+**Mood**: Trust-building, guided, educational, quietly technical, dark
+**Best For**: Dark-theme workshops, developer onboarding, technical tutorials, coding playbooks, night-mode guides
+**Reference**: Dark variant of Style 31 (Workshop Playbook) — same 9 slide types, dark navy canvas
+
+### Background
+- All content slides: Slate 900 `#0F172A` (consistent dark navy canvas)
+- Hero slide (cover): full-bleed photography or product screenshot with `#0F172A` overlay at 70–85% opacity, centered headline + subtitle + rounded keyword chips
+- No light or white backgrounds — `#0F172A` across all slides
+
+### Colors
+
+**Core Palette**
+
+| Role | Color | HEX |
+|------|-------|-----|
+| Canvas (all content slides) | Slate 900 | `#0F172A` |
+| Card surface | Dark navy | `#1A2332` |
+| Card border | Muted navy | `#2D3B4F` |
+| Divider line | Slate 800 | `#1E293B` |
+| Title / key heading | Ice white | `#F0F4F8` |
+| Body copy | Slate 400 | `#94A3B8` |
+| Secondary body / subtitle | Slate 300 | `#CBD5E1` |
+| Metadata / slide number | Slate 500 | `#64748B` |
+
+**Accent Palette (identical to Style 31 — brighter on dark)**
+
+| Role | Color | HEX | When |
+|------|-------|-----|------|
+| Primary accent | Trust blue | `#5D8EF5` | Default, intro, closing, step badges |
+| Positive / permission | Soft green | `#64B88C` | Approval, success, architecture layers |
+| Warning / before-state | Soft coral | `#F08A7F` | Before/after, warnings, security alerts |
+| Highlight / CTA | Warm gold | `#F5C451` | Terminal dot, CTA buttons, emphasis |
+
+**Derived Dark Tint Colors (low-opacity accent on dark canvas)**
+
+| Base Accent | Dark Tint Fill | Dark Tint Border | Usage |
+|-------------|---------------|-----------------|-------|
+| Coral `#F08A7F` | `#2A1520` | `#5C3535` | Before-state cards, warning callouts |
+| Green `#64B88C` | `#0F2318` | `#1A4030` | After-state cards, success callouts |
+| Blue `#5D8EF5` | `#162544` | `#2A3F6B` | Info cards, default highlight |
+| Gold `#F5C451` | `#2A2210` | `#5C4A1A` | Tip/highlight callouts |
+
+**Code Panel Colors (one step darker than canvas)**
+
+| Role | Color | HEX |
+|------|-------|-----|
+| Code panel background | Slate 950 | `#020617` |
+| Code panel header bar | Slate 900 | `#0F172A` |
+| Code panel border | Slate 700 | `#334155` |
+| Terminal dot — red | Soft red | `#E3657B` |
+| Terminal dot — yellow | Warm gold | `#F5C451` |
+| Terminal dot — green | Soft green | `#64B88C` |
+
+### Fonts
+- **Slide title (hero)**: NanumSquare Bold, 36–42pt, `#FFFFFF` on dark overlay
+- **Section heading**: NanumSquare Bold, 23pt, `#F0F4F8`
+- **Card heading / label**: NanumSquare Bold, 16pt, `#F0F4F8` or accent color
+- **Badge pill text**: NanumSquare Bold, 10pt, `#FFFFFF` on accent fill
+- **Body copy**: Noto Sans CJK KR Regular, 11–12pt, `#94A3B8`
+- **Metadata / slide number**: Noto Sans CJK KR Bold, 9pt, `#64748B`
+- **Code / technical**: JetBrains Mono / D2Coding, 10–12pt, `#CBD5E1` on dark panel
+- **Keyword chips (hero)**: NanumSquare Bold, 10–11pt, `#FFFFFF` on semi-transparent light pill (white 15–20%)
+
+### Layout Structure
+
+**Header Zone (consistent across all content slides)**
+- Top-left: section badge pill (rounded rect, accent fill, white text)
+- Below badge: large headline (NanumSquare Bold, 23pt, `#F0F4F8`)
+- Below headline: subtitle (Noto Sans CJK KR, 11pt, `#94A3B8`)
+- Top-right: slide number (2-digit, `#64748B`)
+- Top-right area: deck title in muted text (`#64748B`, 9pt)
+- Horizontal divider line (`#1E293B`, 1pt) separating header from content
+
+**Content Zone — 9 Canonical Slide Types (same as Style 31)**
+
+1. **Hero/Cover**: full-bleed photo + `#0F172A` overlay 70–85%, centered headline + subtitle + keyword chips row
+2. **Statistics Cards**: 2–4 column dark cards (`#1A2332`), each with top accent bar, large stat number (29pt, `#F0F4F8`), source citation, and bottom info tray
+3. **Before/After Comparison**: left card (dark coral tint `#2A1520`, border `#5C3535`) vs right card (dark green tint `#0F2318`, border `#1A4030`), chevron connector between, bottom summary row
+4. **Step-by-step vertical**: numbered circle badges + arrow connectors, 3–4 rows
+5. **Feature Grid (2×2 or 1×4)**: icon in colored circle + label + description per cell, thin dividers (`#1E293B`) between
+6. **Text + Code Split (45/55)**: left = explanation cards, right = dark code panel (`#020617`) with macOS-style header dots + filename label in header bar; code uses syntax highlighting — keywords green `#64B88C`, class/function names gold `#F5C451`, strings coral `#F08A7F`, comments `#475569`, base text `#CBD5E1`; optional `⚠` warning icon for dangerous sections; bottom can hold accent-fill insight tray (accent background e.g. `#5D8EF5` + white text) as alternative to bordered tray
+7. **Layer/Architecture Cards**: stacked horizontal dark cards (`#1A2332`) with **left accent border** (4–5px vertical color bar on left edge, color = layer's accent in rotation: blue → gold → coral → green), numbered or icon-prefixed with matching accent circle, optional code panel on right with syntax-highlighted content and filename header
+8. **Habit/Action 3-Column**: 3 equal dark cards with top accent bar (different color each), icon circle, "HABIT 0X" label, bottom CTA footer (`#1E293B` bar with gold button)
+9. **Closing Checklist**: numbered step circles (semi-transparent blue at 15–20% opacity on dark), step title + description list
+
+**Card Architecture (3-layer standard — dark variant)**
+- Outer container: roundRect, fill `#1A2332`, border `#2D3B4F` 1pt, NO shadow (border contrast only)
+- Top accent bar: roundRect, full-width, height ~5px equivalent, fill = section accent color
+- Inner content: text blocks with consistent padding (~0.25" / 18288 EMU)
+
+### Signature Elements
+- **Section badge pill**: same as Style 31, accent fill + white text — "PART 0X", "STEP 01-02", section names
+- **Top accent bar on every card**: thin colored strip at card top edge, matching dominant accent
+- **Semi-transparent circle indicators**: 15–20% opacity accent fills on dark canvas (lower than Style 31's 16–22% to avoid muddy appearance)
+- **macOS-style code window**: `#020617` panel (one step darker than canvas) with header `#0F172A`, three dots (red, yellow, green), filename label + optional token count/metadata in header; syntax highlighting: keywords `#64B88C`, class/function names `#F5C451`, strings `#F08A7F`, comments `#475569`, base `#CBD5E1`; optional `⚠` warning icon for danger sections
+- **Left accent border (Layer cards)**: 4–5px vertical color bar on left edge of stacked Architecture/Layer cards; each layer gets a different accent in rotation (blue → gold → coral → green)
+- **Icon circle color rotation**: icon circles in Feature Grid and Layer cards follow sequential accent assignment — blue → gold → coral → green — matching card's dominant accent
+- **Chevron connectors**: `›` or `→` arrows in `#64748B` between cards or steps
+- **Info/insight tray**: bottom-spanning bar in `#1E293B` with `!` accent icon + insight text; two variants — (a) `#1E293B` bordered container, (b) accent-fill tray (e.g. blue `#5D8EF5` fill + white text)
+- **CTA footer bar**: `#1E293B` spanning slide width, gold `#F5C451` rounded button
+- **Keyword chips (hero)**: row of rounded pills with white 15–20% opacity background, white text
+- **Slide number**: 2-digit zero-padded, top-right, `#64748B`, 9pt
+- **Deck title watermark**: top-right muted text (`#64748B`, 9pt) showing presentation title
+
+### Color Rotation Per Section
+- Same system as Style 31: one dominant + max 2 support accents per slide
+- Common rotation: Blue (intro) → Coral (problem/before) → Green (solution/after) → Blue (tools) → Coral (security) → Blue (closing)
+- Comparison slides: coral left + green right (dark tint versions)
+
+### Avoid
+- **Light or white backgrounds** — destroys the dark navy aesthetic
+- **White card fills** — use `#1A2332` instead of `#FFFFFF`
+- **Drop shadows on cards** — invisible on dark canvas; rely on border contrast `#2D3B4F` only
+- **High-opacity transparent fills** — keep accent tints at 15–20%; higher looks muddy on dark
+- **Code panel same color as canvas** — must use `#020617` (Slate-950), one step darker than `#0F172A`
+- **Light divider colors** — use `#1E293B`, not `#D9DFEA`
+- Loud gradients or neon effects across content slides
+- Dense text-only bullet pages without cards, panels, or diagrams
+- Random accent colors — follow section rotation
+- Accent lines under titles
+
+---
+
+## 34. Terminal Workshop (Dark)
+
+**Mood**: Hacker-friendly, developer education, terminal aesthetic, confident  
+**Best For**: Internal tech training, coding workshops, vibe-coding guides, developer onboarding, security team education  
+**Reference Template**: `assets/templates/terminal-workshop-template.pptx`
+
+### Background
+- **Section divider / cover slides**: Near-black `#17181F` (consistent dark canvas)
+- **Content slides**: White `#FFFFFF` (inherited from master bg1) — clean contrast against dark dividers
+- Two-tone rhythm: dark section openers → white content → dark next section
+
+### Colors
+
+**Core Palette**
+
+| Role | Color | HEX |
+|------|-------|-----|
+| Section divider canvas | Near-black | `#17181F` |
+| Content slide canvas | White | `#FFFFFF` |
+| Primary accent | Terminal green | `#6FEF51` |
+| Secondary accent | Deep green | `#07C63C` |
+| Tertiary accent | Pastel green | `#BEEDC5` |
+| Soft highlight | Light mint | `#C4FFC1` |
+| Warning / negative | Soft red | `#FFB7B7` |
+| Card / shape fill (dark) | Dark gray | `#5F5F5F` |
+| Mid gray (borders) | Medium gray | `#7F7F7F` |
+| Title text (dark slides) | Terminal green | `#6FEF51` |
+| Title text (light slides) | Terminal green (number) + inherited dark | `#6FEF51` + theme `tx1` |
+| Body text (light slides) | Theme text color | inherited `tx1` |
+| Confidential badge | Deep green | `#07C63C` |
+
+**Functional Color Pairs**
+
+| Context | Positive / Allowed | Negative / Blocked |
+|---------|--------------------|--------------------|
+| Comparison | Mint `#C4FFC1` | Soft red `#FFB7B7` |
+| Callout fill | Terminal green `#6FEF51` | Theme `tx1` (dark) |
+
+### Fonts
+- **Title (section divider)**: Mona12, 34pt, bold, `#6FEF51` — monospace/code aesthetic
+- **Title (content slide)**: Mona12, 20pt, `#6FEF51` for section number + 나눔스퀘어 for Korean text
+- **Body copy**: 나눔스퀘어, 16pt regular (primary), 12–14pt for detail
+- **Emphasis / badge**: NanumSquare ExtraBold, 10–16pt, `#07C63C`
+- **Code-style text**: Mona12, 12–20pt — used for technical labels, step numbers, emoji markers
+- **Large numbers / hero**: Mona12, 34pt bold
+- **Small labels / metadata**: 나눔스퀘어, 5–10pt
+- **Fallback monospace**: Mona10x12, 25pt (for code blocks / ASCII art)
+
+### Layout Structure
+
+**Two Layout Types in Alternation**
+
+**Type A — Section Divider (layout: 2_제목 슬라이드)**
+- Full dark background `#17181F`
+- Large section number in terminal green (e.g. `1.`, `2.`, `3.`) — Mona12, 34pt bold, `#6FEF51`
+- Section title below number — Mona12 or 나눔스퀘어, `#6FEF51`
+- Minimal: only number + title, no other elements
+- Also used for: Cover, TOC, Q&A, Closing slides
+
+**Type B — Content Slide (layout: 1_제목 슬라이드)**
+- White background (master bg1)
+- **Header zone**: top-left title in format `X.Y 섹션명 ㅡ 서브제목`
+  - Section number (e.g. `1.1`) in Mona12, 20pt, `#6FEF51`
+  - Korean section name in Mona12, 20pt, `#6FEF51`
+  - ㅡ separator + subtitle in inherited/dark color
+- **Top-right badge**: `대외비` in NanumSquare ExtraBold, 10pt, `#07C63C`
+- **Content zone**: below title, flexible layouts (see Canonical Slide Types below)
+
+**Content Zone — Canonical Slide Types**
+
+1. **Definition Card**: Large rounded-rect card with definition text, 💡 emoji marker in dark circle for key insight callout below
+2. **Timeline / Evolution**: Horizontal progression with labeled stages (text + icons), connecting lines
+3. **Tool Comparison Grid**: Table (4–6 cols × 4 rows) with tool logos/icons, rounded-rect highlight behind active column
+4. **Whitelist / Split Comparison**: Vertical center divider line, left column ✅ (mint `#C4FFC1`), right column 🚫 (soft red `#FFB7B7`), tables on each side, terminal-green callout pill for summary stat
+5. **Full-bleed Screenshot + Text**: Large screenshot/image on one side (50–60%), text explanation on the other with ☑️ checkmark items
+6. **3-Column Step Guide**: 3 equal columns with step number (Mona12, bold), English subtitle in parentheses, explanation text; chevron arrows between columns; numbered circle badges at top
+7. **VS Comparison (Side-by-Side)**: Two product logos centered with names, vertical divider, 👉 emoji bullet lists for each, bottom Q&A card with ❔ emoji + rounded-rect answer card with 😎 emoji
+8. **Screenshot Gallery**: 2–4 screenshots with numbered emoji labels (1️⃣ 2️⃣ 3️⃣), minimal text overlay
+9. **Link Reference**: 🔗 emoji + full URL display, content below
+10. **Warning / Note Card**: Rounded-rect card with ❕ or 💡 emoji badge in dark fill circle, explanation text below
+
+**Card Architecture**
+- Rounded-rect shapes (둥근 모서리): primary container type (43 instances in template)
+- Emoji badge circles: theme `tx1` fill with large emoji centered (❔, 😎, 💡, ❕)
+- Callout pill: `#6FEF51` fill rounded-rect with white text for summary stats (e.g. "3개 중 1개만 생성 가능")
+
+### Signature Elements
+- **Code-comment style titles**: Cover uses `/* comment */` syntax, closing uses `// End of Document` + `print("Thank You 😊")` — reinforcing the "code is the medium" theme  
+- **Terminal green accent `#6FEF51`**: The single dominant accent, used for section numbers, title highlights, callout pills, and shape fills — creates a "terminal cursor" identity
+- **Monospace title font (Mona12)**: GitHub's Mona font gives all titles a code/terminal aesthetic; section numbers and technical labels exclusively use this
+- **Emoji markers in dark circles**: Rounded-rect shapes with dark fill (`tx1`) containing single emoji (💡 ❔ 😎 ❕ 🔗 ✅ 🚫) — used as visual anchors for Q&A pairs, tips, links, and warnings
+- **ㅡ dash separator in titles**: Content slide titles use the pattern `X.Y 섹션명 ㅡ 서브제목` where ㅡ is a Korean em-dash, creating visual hierarchy within the title line
+- **`대외비` confidential badge**: Top-right corner of every content slide, NanumSquare ExtraBold `#07C63C` — doubles as a visual anchor point
+- **Dark/light alternation rhythm**: Section dividers (`#17181F`) → white content slides → next section divider — creates clear visual chapter breaks
+- **Q&A card pairs**: ❔ question card + 😎 answer card pattern, with rounded-rect containers and distinct fill treatments
+- **Comparison split with emoji markers**: ✅ / 🚫 with colored text (mint vs red) for allowed/blocked comparisons
+- **Screenshot-heavy content**: ~53 images across 38 slides — the template is screenshot-first with text annotations rather than text-first with decorative images
+
+### Section Color Consistency
+- Terminal green `#6FEF51` is used consistently across ALL sections — no per-section color rotation
+- Deep green `#07C63C` is reserved for the confidential badge and secondary emphasis
+- Pastel green `#BEEDC5` for softer highlights and backgrounds
+- Red `#FFB7B7` appears only in negative/blocked contexts (comparison slides)
+
+### Avoid
+- **Color rotation per section** — this style uses a single green accent throughout, unlike Workshop Playbook's multi-accent rotation
+- **Gradients or transparency effects** — all fills are solid; the aesthetic is flat terminal/code
+- **Serif or decorative fonts** — stick to Mona12 (monospace) + 나눔스퀘어 (clean sans-serif)
+- **Colored backgrounds on content slides** — content slides are always white; only section dividers use `#17181F`
+- **Soft shadows or glassmorphism** — the style relies on flat shapes and solid fills
+- **Non-green accent colors** (blue, coral, gold) — terminal green is the sole accent identity
+- **Dense paragraph text without visual anchors** — every block of text needs an emoji marker, screenshot, or card container
+- **Generic bullet points** — use 👉 emoji or ☑️ instead of standard bullet characters
+- **Light gray backgrounds** — the contrast should be pure: `#17181F` dark or `#FFFFFF` white, nothing in between
+
+---
+
+## 35. NAVER Corporate Report
+
+**Mood**: Professional, structured, corporate security/IT reporting  
+**Best For**: Internal company reports, security analysis, compliance docs, technical proposals, project status updates
+
+> **Template Origin**: NAVER 내부 보고서 표준 양식. 보안등급 표시(일반/대외비/기밀), NAVER 저작권 표시, 구조화된 목차-챕터-본문-끝 흐름을 따른다.
+
+### Slide Size
+- **4:3** (10.0in × 7.5in) — 와이드스크린 아님, 전통적 비율
+
+### Background
+- **Master background**: 배경 이미지 (NAVER 로고/패턴) + 60% 투명도 (alphaModFix 60000)
+- 콘텐츠 슬라이드는 `scheme:bg1` (흰색) 위에 마스터 배경이 은은하게 비침
+- 표지/끝 슬라이드도 동일한 마스터 배경 사용
+
+### Colors
+
+| Role | Color | HEX |
+|------|-------|-----|
+| Primary text | Black (theme dk1) | `#000000` (windowText) |
+| Background | White (theme lt1) | `#FFFFFF` (window) |
+| Dark accent (dk2) | Navy | `#1F497D` |
+| Light accent (lt2) | Warm gray | `#EEECE1` |
+| Accent 1 (primary) | Steel blue | `#4F81BD` |
+| Accent 2 | Muted red | `#C0504D` |
+| Accent 3 | Olive green | `#9BBB59` |
+| Accent 4 | Purple | `#8064A2` |
+| Accent 5 | Teal | `#4BACC6` |
+| Accent 6 | Orange | `#F79646` |
+| Diagram fill (dark) | Deep blue | `#336699` |
+| Diagram fill (mid) | Medium blue | `#3F7FBF` |
+| Diagram fill (light) | Sky blue | `#76B5D4` |
+| Diagram fill (pale) | Ice blue | `#CCECFF` |
+| Diagram border | Steel border | `#9ABAD2` |
+| Emphasis / warning | Red | `#FF0000` |
+| Hyperlink | Blue | `#0000FF` |
+
+**Diagram Color Cascade** (flow charts, architecture diagrams):
+- `#336699` → `#3F7FBF` → `#76B5D4` → `#CCECFF` (dark to light hierarchy)
+- 텍스트는 `scheme:bg1` (white) on dark fills
+- 테두리는 `#336699` 통일, width 0.75pt
+
+### Fonts
+- **Title (표지)**: 나눔고딕 Light, 45pt — 문서 제목
+- **Title (콘텐츠)**: 나눔고딕 Bold, 16pt — 페이지 제목 (좌측 정렬)
+- **Body copy**: 나눔고딕 Regular, 10–10.5pt — 본문 텍스트
+- **Body secondary**: 맑은 고딕, 10.5pt — 데이터 설명, 차트 주석
+- **Small text**: 나눔고딕, 8–9pt — 다이어그램 라벨, 각주
+- **Copyright**: 나눔고딕, 8pt — "ⓒ NAVER Corp." 바닥글
+- **End page**: 나눔고딕, 45pt — "End of Document"
+- **Section number**: 나눔고딕, 16pt Bold — "1.", "2." 등 제목 앞 번호
+- **Diagram labels**: 맑은 고딕/나눔고딕, 8–8.3pt — 플로우차트, 아키텍처 도형 내 텍스트
+- **Category headers**: 14pt Regular — 아키텍처 다이어그램의 영역 구분자 (ESM, APP, DB, SOC 등)
+- **Fallback latin**: +mn-ea (테마 기본 폰트 = 나눔고딕)
+
+### Layout Structure
+
+**7개의 표준 레이아웃**
+
+**1_표지 (Cover)**
+- 마스터 배경 이미지가 은은하게 표시
+- **제목**: 좌측 상단 (0.3in, 0.3in), 나눔고딕 Light 45pt, 최대 2줄
+- **부제목**: 좌측 (0.3in, 2.5in) — "소속팀 / 상위부서 : OO팀 / OO실" 형식
+- **구분선**: 제목과 부제목 사이 짧은 직선 (0.4in 길이, 1.5pt)
+- **바닥글**: 좌측 하단 "ⓒ NAVER Corp." (나눔고딕 8pt)
+- 보안등급(대외비 등)은 부제목 끝에 포함
+
+**2_목차 (TOC)**
+- "목차" 제목 + 번호 매긴 항목 리스트
+- 마스터 텍스트 스타일 기반 계층 구조
+
+**3_챕터 (Chapter Divider)**
+- 챕터 번호와 제목만 표시: "1. 챕터  제목 : 나눔고딕 R, 36pt"
+- 전체 페이지를 차지하는 간결한 구분 슬라이드
+
+**4_일반 / 4_대외비 / 4_기밀 (Content Slides)**
+- **Header zone** (0.3in, 0.3in): 9.45 × 0.37in
+  - 좌측: "1.1 페이지 제목" — 나눔고딕 Bold 16pt
+  - 번호("1.")는 Regular, 제목 텍스트는 Bold
+  - 우측 상단: 보안등급 뱃지 (8.7in, 0.2in) — "일반" / "대외비" / "기밀"
+- **Footer zone** (0.26in, 7.0in): 3.04 × 0.27in
+  - 슬라이드 번호 (‹#›) + " / " + 문서명
+  - 배경: scheme:bg1, 텍스트: scheme:tx1
+- **Content area** (0.7in, 1.3in): 8.7 × 5.0–5.5in
+  - 마스터 텍스트 스타일 (6단계 들여쓰기)
+  - 자유롭게 텍스트, 이미지, 다이어그램 배치
+
+**5_마지막장 (End Page)**
+- 중앙에 "End of Document" (나눔고딕, 45pt)
+- 마스터 배경만 표시하는 최소한 디자인
+
+### Slide Composition Patterns (콘텐츠 슬라이드 유형)
+
+1. **텍스트 중심 보고**: 제목 + 불릿 포인트 본문 (10–10.5pt), 굵은 키워드 강조
+2. **아키텍처 다이어그램**: 영역 구분자(14pt 헤더) + 블루 계열 도형 (#336699/#3F7FBF) + 연결선(0.75–1.0pt), 흰색 텍스트 on 진한 배경
+3. **프로세스 플로우**: 번호 표시 원(6pt) + 연결선 + 그룹화된 아이콘/이미지
+4. **스크린샷 + 설명**: 큰 스크린샷 중앙/좌측 + 빨간 사각형 강조(#FF0000 border) + 텍스트 설명
+5. **차트 + 분석**: 차트 영역 + 요약 텍스트 박스 (맑은 고딕 10.5pt) + 핵심 수치 강조 (Bold, #FF0000)
+6. **표 기반 데이터**: 테이블 + 부가 설명 텍스트 박스
+7. **비교/타임라인**: 연도별 적용 범위, before/after 비교
+
+### Signature Elements
+- **보안등급 뱃지**: 모든 콘텐츠 슬라이드 우측 상단에 "일반" / "대외비" / "기밀" 표시 — 3가지 레이아웃 변형으로 구분
+- **NAVER 저작권 표시**: 표지 좌측 하단 "ⓒ NAVER Corp." (나눔고딕 8pt Bold+Regular)
+- **번호 매긴 제목**: "1. 개요", "2. 활용계획" 형식 — 번호는 Regular, 제목은 Bold
+- **블루 다이어그램 계열색**: `#336699` → `#3F7FBF` → `#76B5D4` → `#CCECFF`의 4단계 파란색 그라데이션으로 도형 계층 표현
+- **빨간색 강조 테두리**: 스크린샷이나 중요 영역에 `#FF0000` 직사각형 테두리로 하이라이트
+- **바닥글 슬라이드 넘버링**: "‹#› / 문서명" 형식으로 좌측 하단에 배치
+- **End of Document**: 마지막장에 영문 "End of Document"를 45pt 크기로 중앙 배치
+- **마스터 배경 이미지**: 60% 투명도로 은은하게 깔리는 기업 CI 배경
+- **구분선**: 표지에서 제목과 부제목 사이 짧은 직선(1.5pt) — 시각적 분리
+
+### Section Color Consistency
+- 블루 계열(`#4F81BD`, `#336699`, `#3F7FBF`)이 전체 문서의 주요 색상
+- 빨간색(`#FF0000`)은 경고/강조/변경사항 표시에만 사용
+- 보안등급에 따라 레이아웃이 바뀌지만, 색상 체계는 동일하게 유지
+
+### Avoid
+- **와이드스크린(16:9) 비율** — 이 템플릿은 반드시 4:3
+- **밝은 색상 배경** — 콘텐츠 영역은 항상 흰색 (마스터 배경 위)
+- **다채로운 악센트 색상** — 블루 계열 + 빨간 강조만 사용, 녹색/노란색 등 자제
+- **장식적 폰트** — 나눔고딕 / 맑은 고딕만 사용, 영문도 이 폰트 사용
+- **그림자, 그라데이션, 투명 효과** — 도형은 모두 솔리드 fill + 솔리드 border
+- **보안등급 뱃지 생략** — 모든 콘텐츠 슬라이드에 반드시 우측 상단에 표시
+- **바닥글 생략** — 슬라이드 번호 + 문서명 바닥글은 모든 콘텐츠 슬라이드에 필수
+- **큰 제목 폰트** — 콘텐츠 슬라이드 제목은 16pt를 초과하지 않음 (절제된 디자인)
+- **표지에서 저작권 표시 생략** — "ⓒ NAVER Corp."는 표지 좌측 하단에 반드시 포함

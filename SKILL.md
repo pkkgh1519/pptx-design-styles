@@ -1,16 +1,13 @@
 ---
 name: pptx-design-styles
 description: >
-  Use this skill whenever creating PPTX slides, presentations, or decks with any of these 30 modern design styles:
-  Glassmorphism, Neo-Brutalism, Bento Grid, Dark Academia, Gradient Mesh, Claymorphism,
-  Swiss International, Aurora Neon Glow, Retro Y2K, Nordic Minimalism, Typographic Bold,
-  Duotone Color Split, Monochrome Minimal, Cyberpunk Outline, Editorial Magazine,
-  Pastel Soft UI, Dark Neon Miami, Hand-crafted Organic, Isometric 3D Flat, Vaporwave,
-  Art Deco Luxe, Brutalist Newspaper, Stained Glass Mosaic, Liquid Blob Morphing,
-  Memphis Pop Pattern, Dark Forest Nature, Architectural Blueprint, Maximalist Collage,
-  SciFi Holographic Data, Risograph Print.
-  Also activate for requests using words like "sleek", "modern", "trendy", "designed",
-  "stylish", or "visually striking" presentations.
+  Create distinctive, production-grade PPTX slide decks using 35 modern design styles including
+  Glassmorphism, Neo-Brutalism, Bento Grid, Dark Academia, Gradient Mesh, Swiss International,
+  Aurora Neon Glow, Nordic Minimalism, Cyberpunk Outline, Vaporwave, Art Deco Luxe, Risograph Print,
+  Workshop Playbook, Dark Command Dashboard, Terminal Workshop, NAVER Corporate Report, and more.
+  Use when asked to build presentations, pitch decks, workshop guides, onboarding decks, tutorial slides,
+  or when the user mentions "sleek", "modern", "stylish", or "visually striking" presentations.
+  Also activate for NAVER 보고서, 대외비, 기밀, or Korean corporate/security reporting.
 ---
 
 # PPTX Modern Design Styles Skill
@@ -20,6 +17,10 @@ description: >
 1. Identify the style the user wants, or recommend a style based on the content/audience
 2. Read the detailed spec for that style in `references/styles.md`
 3. Apply alongside the core pptx skill to build the slide deck
+4. For `Workshop Playbook`, inspect `assets/templates/workshop-playbook-template.pptx` with the core pptx skill when the user wants the same pacing, step badges, and guide-style layout rhythm
+5. For `Workshop Playbook (Dark)`, same workflow as Workshop Playbook but apply the dark navy color mapping from Style 33 — structure is identical, only the surface/text/tint colors change
+6. For `Terminal Workshop (Dark)`, inspect `assets/templates/terminal-workshop-template.pptx` with the core pptx skill when the user wants coding workshop / vibe-coding training style with terminal-green accent and monospace titles
+7. For `NAVER Corporate Report`, inspect `assets/templates/naver-corporate-report-template.pptx` with the core pptx skill when the user wants Korean corporate reporting style. Follow the 4:3 aspect ratio, 나눔고딕/맑은 고딕 font system, blue diagram cascade (`#336699` → `#3F7FBF` → `#76B5D4` → `#CCECFF`), security classification badge (일반/대외비/기밀), and footer with slide number + document name
 
 > **Always** read `references/styles.md` before starting.  
 > If the user hasn't chosen a style, use the recommendation matrix below.
@@ -30,16 +31,18 @@ description: >
 
 | Presentation Goal | Recommended Styles |
 |-------------------|--------------------|
-| Tech / AI / Startup | Glassmorphism, Aurora Neon, Cyberpunk Outline, SciFi Holographic |
-| Corporate / Consulting / Finance | Swiss International, Monochrome Minimal, Editorial Magazine, Architectural Blueprint |
+| Tech / AI / Startup | Glassmorphism, Aurora Neon, Cyberpunk Outline, SciFi Holographic, Dark Command Dashboard, Workshop Playbook (Dark), Terminal Workshop (Dark) |
+| Corporate / Consulting / Finance | Swiss International, Monochrome Minimal, Editorial Magazine, Architectural Blueprint, NAVER Corporate Report |
 | Education / Research / History | Dark Academia, Nordic Minimalism, Brutalist Newspaper |
+| Training / Workshop / Onboarding | Workshop Playbook, Workshop Playbook (Dark), Terminal Workshop (Dark), Swiss International, Bento Grid, Nordic Minimalism |
+| Korean Corporate / Security Report | NAVER Corporate Report, Swiss International, Monochrome Minimal |
 | Brand / Marketing | Gradient Mesh, Typographic Bold, Duotone Split, Risograph Print |
 | Product / App / UX | Bento Grid, Claymorphism, Pastel Soft UI, Liquid Blob |
 | Entertainment / Gaming | Retro Y2K, Dark Neon Miami, Vaporwave, Memphis Pop |
 | Eco / Wellness / Culture | Hand-crafted Organic, Nordic Minimalism, Dark Forest Nature |
 | IT Infrastructure / Architecture | Isometric 3D Flat, Cyberpunk Outline, Architectural Blueprint |
 | Portfolio / Art / Creative | Monochrome Minimal, Editorial Magazine, Risograph Print, Maximalist Collage |
-| Pitch Deck / Strategy | Neo-Brutalism, Duotone Split, Bento Grid, Art Deco Luxe |
+| Pitch Deck / Strategy | Neo-Brutalism, Duotone Split, Bento Grid, Art Deco Luxe, Dark Command Dashboard |
 | Luxury / Events / Gala | Art Deco Luxe, Monochrome Minimal, Dark Academia |
 | Science / Biotech / Innovation | Liquid Blob, SciFi Holographic, Aurora Neon |
 
@@ -79,6 +82,11 @@ description: >
 | 28 | Maximalist Collage | Energetic · Layered | Advertising, fashion |
 | 29 | SciFi Holographic Data | Hologram · HUD | AI, quantum, defense |
 | 30 | Risograph Print | CMYK · Indie | Publishing, art, music |
+| 31 | Workshop Playbook | Clear · Trust-building | Workshops, onboarding, tutorials |
+| 32 | Dark Command Dashboard | Commanding · Dark-UI | Developer pitches, AI/SaaS overviews |
+| 33 | Workshop Playbook (Dark) | Dark · Guided · Trust | Dark workshops, dev onboarding, coding playbooks |
+| 34 | Terminal Workshop (Dark) | Hacker · Terminal · Code | Coding workshops, vibe-coding training, dev education |
+| 35 | NAVER Corporate Report | Professional · Structured · Corporate | Internal reports, security analysis, compliance, project status |
 
 ---
 

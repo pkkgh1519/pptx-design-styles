@@ -1,6 +1,6 @@
 # 🎨 PPTX Modern Design Styles Skill
 
-[English](README.md) | [한국어](README_ko.md) | [Design Preview 🖼️](https://corazzon.github.io/pptx-design-styles/preview/modern-pptx-designs-30.html) | [<span style="color:red">유튜브 영상 가이드</span>](https://youtu.be/5qxrY88lW_Q)
+[English](README.md) | [한국어](README_ko.md) | [Design Preview 🖼️](https://corazzon.github.io/pptx-design-styles/preview/modern-pptx-designs-34.html) | [<span style="color:red">유튜브 영상 가이드</span>](https://youtu.be/5qxrY88lW_Q)
 
 <p align="center">
   <a href="https://youtu.be/5qxrY88lW_Q">
@@ -8,13 +8,13 @@
   </a>
 </p>
 
-> A Claude.ai skill for creating visually stunning presentations — 30 modern design styles included
+> An agent skill for creating visually stunning presentations — 35 modern design styles included
 
 ---
 
 ## Overview
 
-This skill enables Claude.ai to apply **30 curated modern design styles** when generating PPTX presentations. Each style includes precise **HEX color values, font pairings, layout rules, and signature elements** so every deck looks intentionally designed.
+This skill enables agents to apply **35 curated modern design styles** when generating PPTX presentations. Each style includes precise **HEX color values, font pairings, layout rules, and signature elements** so every deck looks intentionally designed.
 
 ---
 
@@ -27,7 +27,7 @@ Turn Claude into your personal presentation design expert using the Projects fea
 - **Setup**: 
   1. Create a new **Project** in Claude.ai.
   2. Upload `SKILL.md` and `references/styles.md` to the **Project Knowledge**.
-- **Usage**: Ask in the project chat, e.g., "Create an outline for a PPTX deck". Claude will reference the knowledge base to apply the most optimal design from the 30 themes.
+- **Usage**: Ask in the project chat, e.g., "Create an outline for a PPTX deck". Claude will reference the knowledge base to apply the most optimal design from the 35 themes.
 
 ### 2. Gemini Antigravity (Local Skill)
 Register this repository in the Antigravity agent's local skill system.
@@ -42,13 +42,13 @@ Register this repository in the Antigravity agent's local skill system.
 Integrate these design guidelines within the Codex agent environment.
 - **Setup**: 
   1. Add this project to the skills folder in your Codex workspace (e.g., `.codex/skills/` or a designated path).
-- **Usage**: When the agent detects presentation-related context during coding or drafting, it generates slide structures and styling codes following the 30 style specifications outlined in `SKILL.md`.
+- **Usage**: When the agent detects presentation-related context during coding or drafting, it generates slide structures and styling codes following the 35 style specifications outlined in `SKILL.md`.
 
 ---
 
 ## Visual Gallery
 
-Explore a few of the **30 distinct styles** available in this collection.
+Explore a few of the **35 distinct styles** available in this collection.
 
 ### ✨ Highlights
 <p align="center">
@@ -63,7 +63,7 @@ Explore a few of the **30 distinct styles** available in this collection.
 
 ---
 
-## 30 Design Styles
+## 35 Design Styles
 
 | # | Style | Mood | Best For |
 |---|-------|------|----------|
@@ -97,6 +97,11 @@ Explore a few of the **30 distinct styles** available in this collection.
 | 28 | Maximalist Collage | Energetic · Layered | Advertising, fashion |
 | 29 | SciFi Holographic Data | Hologram · HUD | AI, quantum |
 | 30 | Risograph Print | CMYK · Indie | Publishing, art |
+| 31 | Workshop Playbook | Clear · Trust-building | Workshops, onboarding |
+| 32 | Dark Command Dashboard | Commanding · Dark-UI | Developer pitches, AI/SaaS |
+| 33 | Workshop Playbook (Dark) | Dark · Guided · Trust | Dark workshops, dev onboarding |
+| 34 | Terminal Workshop (Dark) | Hacker · Terminal · Code | Coding workshops, dev education |
+| 35 | NAVER Corporate Report | Professional · Structured · Corporate | Internal reports, security analysis |
 
 ---
 
@@ -106,8 +111,12 @@ Explore a few of the **30 distinct styles** available in this collection.
 pptx-design-styles/
 ├── SKILL.md              # Skill trigger + recommendation matrix
 ├── README.md             # This file
+├── README_ko.md          # Korean guide
+├── assets/
+│   ├── images/           # Gallery images
+│   └── templates/        # PPTX templates for selected styles
 ├── preview/
-│   └── modern-pptx-designs-30.html
+│   └── modern-pptx-designs-34.html
 └── references/
     └── styles.md         # Full specs: HEX, fonts, layout, signature elements
 ```
@@ -118,8 +127,10 @@ pptx-design-styles/
 
 | Goal | Recommended |
 |------|-------------|
-| Tech / AI / Startup | Glassmorphism, Aurora Neon, Cyberpunk, SciFi Holographic |
-| Corporate / Finance | Swiss International, Monochrome, Editorial Magazine |
+| Tech / AI / Startup | Glassmorphism, Aurora Neon, Cyberpunk, SciFi Holographic, Dark Command Dashboard, Workshop Playbook (Dark), Terminal Workshop (Dark) |
+| Corporate / Finance | Swiss International, Monochrome, Editorial Magazine, NAVER Corporate Report |
+| Korean Corporate / Security Report | NAVER Corporate Report, Swiss International, Monochrome Minimal |
+| Training / Workshop / Onboarding | Workshop Playbook, Workshop Playbook (Dark), Terminal Workshop (Dark), Swiss International, Bento Grid |
 | Brand / Marketing | Gradient Mesh, Typographic Bold, Duotone Split |
 | Product / App / UX | Bento Grid, Claymorphism, Pastel Soft UI |
 | Entertainment / Gaming | Retro Y2K, Dark Neon Miami, Vaporwave, Memphis Pop |
