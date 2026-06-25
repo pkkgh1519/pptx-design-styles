@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>오늘코드 모던 PPTX 디자인 트렌드 33</title>
+  <title>오늘코드 모던 PPTX 디자인 트렌드 36</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&family=Space+Mono:wght@400;700&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Serif+Display:ital@0;1&family=Barlow+Condensed:wght@600;800&display=swap');
 
@@ -2792,147 +2792,294 @@
       opacity: 0.7;
     }
 
-    /* 35 NAVER CORPORATE REPORT */
-    .preview-naver-corp {
+
+    /* 35 녹빛 클라우드 감시자 */
+    .preview-cloud-sentinel {
       background: #FFFFFF;
       overflow: hidden;
-      position: relative;
+      color: #25282A;
     }
 
-    .naver-corp-bg-pattern {
+    .cloud-sentinel-rule {
       position: absolute;
-      inset: 0;
-      background:
-        repeating-linear-gradient(90deg, rgba(79,129,189,0.03) 0px, rgba(79,129,189,0.03) 1px, transparent 1px, transparent 60px),
-        repeating-linear-gradient(0deg, rgba(79,129,189,0.03) 0px, rgba(79,129,189,0.03) 1px, transparent 1px, transparent 60px);
-      opacity: 0.6;
+      top: 18px;
+      left: 18px;
+      right: 18px;
+      height: 2px;
+      background: #D9D9D9;
     }
 
-    .naver-corp-header {
+    .cloud-sentinel-title {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 32px;
-      background: #FFFFFF;
-      border-bottom: 1px solid #E0E0E0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 14px;
+      top: 32px;
+      left: 22px;
+      font-weight: 900;
+      font-size: 13px;
+      color: #25282A;
     }
 
-    .naver-corp-title-num {
-      font-family: 'Noto Sans KR', sans-serif;
-      font-size: 10px;
-      color: #333;
-      font-weight: 400;
-    }
-
-    .naver-corp-title-text {
-      font-family: 'Noto Sans KR', sans-serif;
-      font-size: 10px;
-      color: #333;
-      font-weight: 700;
-    }
-
-    .naver-corp-badge {
-      font-family: 'Noto Sans KR', sans-serif;
-      font-size: 7px;
-      color: #666;
-      letter-spacing: 1px;
-      padding: 2px 6px;
-      border: 1px solid #CCC;
+    .cloud-sentinel-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 14px;
+      margin-right: 8px;
+      vertical-align: -2px;
+      background: #00C73C;
       border-radius: 2px;
     }
 
-    .naver-corp-diagram {
+    .cloud-sentinel-badge {
       position: absolute;
-      top: 42px;
-      left: 14px;
-      right: 14px;
-      bottom: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      top: 34px;
+      right: 22px;
+      font-size: 8px;
+      font-weight: 700;
+      color: #07C63C;
     }
 
-    .naver-corp-row {
-      display: flex;
-      gap: 8px;
-      flex: 1;
+    .cloud-sentinel-arch {
+      position: absolute;
+      left: 22px;
+      top: 68px;
+      width: 178px;
+      height: 108px;
+      border: 1px solid #D9D9D9;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #F8FFFA, #FFFFFF);
+      box-shadow: 0 10px 22px rgba(0, 159, 15, 0.08);
     }
 
-    .naver-corp-box {
-      border-radius: 4px;
+    .cloud-node {
+      position: absolute;
+      width: 42px;
+      height: 30px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Noto Sans KR', sans-serif;
       font-size: 8px;
-      color: #FFFFFF;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+      font-weight: 800;
+      color: #253E93;
+      border: 1px solid #BFEBCB;
+      background: #F2FFF5;
     }
 
-    .naver-corp-box.dark { background: #336699; flex: 2; }
-    .naver-corp-box.mid { background: #3F7FBF; flex: 1; }
-    .naver-corp-box.light { background: #76B5D4; flex: 1; }
-    .naver-corp-box.pale { background: #CCECFF; color: #336699; flex: 1; }
-    .naver-corp-box.accent { background: #4F81BD; flex: 1.5; }
+    .cloud-node.n1 { left: 18px; top: 22px; }
+    .cloud-node.n2 { left: 68px; top: 22px; background: #E9F3FF; border-color: #C8D9F7; }
+    .cloud-node.n3 { left: 118px; top: 22px; }
+    .cloud-node.n4 { left: 44px; top: 68px; background: #00C73C; color: #FFFFFF; }
+    .cloud-node.n5 { left: 96px; top: 68px; background: #253E93; color: #FFFFFF; border-color: #253E93; }
 
-    .naver-corp-connector {
+    .cloud-line {
       position: absolute;
-      width: 1px;
-      height: 10px;
-      background: #336699;
+      height: 2px;
+      background: #00C73C;
+      opacity: 0.45;
+      transform-origin: left center;
     }
 
-    .naver-corp-footer {
+    .cloud-line.l1 { left: 58px; top: 38px; width: 12px; }
+    .cloud-line.l2 { left: 108px; top: 38px; width: 12px; }
+    .cloud-line.l3 { left: 52px; top: 62px; width: 34px; transform: rotate(38deg); }
+    .cloud-line.l4 { left: 111px; top: 62px; width: 34px; transform: rotate(142deg); }
+
+    .cloud-callout {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 24px;
+      right: 20px;
+      width: 120px;
+      height: 34px;
+      border-radius: 11px;
+      background: #E5F6FF;
+      border: 1px solid #CFE8FA;
+      color: #253E93;
+      font-size: 8px;
+      font-weight: 800;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 14px;
-      border-top: 1px solid #E0E0E0;
-      background: #FFFFFF;
+      padding-left: 12px;
     }
 
-    .naver-corp-pagenum {
-      font-family: 'Noto Sans KR', sans-serif;
+    .cloud-callout::before {
+      content: attr(data-num);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      margin-right: 8px;
+      background: #00C73C;
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       font-size: 8px;
-      color: #999;
     }
 
-    .naver-corp-copyright {
-      font-family: 'Noto Sans KR', sans-serif;
-      font-size: 7px;
-      color: #BBB;
-    }
+    .cloud-callout.c1 { top: 72px; }
+    .cloud-callout.c2 { top: 112px; }
+    .cloud-callout.c3 { top: 152px; }
 
-    .naver-corp-highlight {
+    .cloud-sentinel-footer {
       position: absolute;
-      border: 2px solid #FF0000;
-      border-radius: 2px;
-      width: 60px;
-      height: 40px;
-      top: 80px;
-      right: 30px;
-      pointer-events: none;
+      left: 22px;
+      right: 22px;
+      bottom: 14px;
+      height: 18px;
+      border-radius: 9px;
+      background: #E9F3FF;
+      color: #626366;
+      font-size: 7px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      justify-content: space-between;
     }
 
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      color: var(--muted);
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 2px;
+    /* 36 인지 궤도 플레이북 */
+    .preview-cognitive-orbit {
+      background: #FFFFFF;
+      overflow: hidden;
+      color: #25282A;
     }
+
+    .orbit-title {
+      position: absolute;
+      top: 24px;
+      left: 22px;
+      font-weight: 900;
+      font-size: 14px;
+      color: #25282A;
+    }
+
+    .orbit-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 15px;
+      margin-right: 8px;
+      vertical-align: -2px;
+      background: #00C73C;
+      border-radius: 2px;
+    }
+
+    .orbit-badge {
+      position: absolute;
+      top: 27px;
+      right: 22px;
+      font-size: 8px;
+      font-weight: 700;
+      color: #07C63C;
+    }
+
+    .orbit-system {
+      position: absolute;
+      width: 154px;
+      height: 126px;
+      top: 58px;
+      left: 24px;
+      border-radius: 22px;
+      background: #F2F8FE;
+      border: 1px solid #D6E6FA;
+    }
+
+    .orbit-ring {
+      position: absolute;
+      border: 1.5px solid rgba(37, 62, 147, 0.35);
+      border-radius: 50%;
+      transform: rotate(-18deg);
+    }
+
+    .orbit-ring.r1 { width: 118px; height: 70px; left: 18px; top: 28px; }
+    .orbit-ring.r2 { width: 86px; height: 118px; left: 34px; top: 6px; border-color: rgba(0, 199, 60, 0.36); }
+
+    .orbit-core {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      left: 53px;
+      top: 39px;
+      border-radius: 14px;
+      background: #FFFFFF;
+      border: 2px solid #00C73C;
+      box-shadow: 0 10px 24px rgba(0, 199, 60, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      font-weight: 900;
+      color: #253E93;
+    }
+
+    .orbit-node {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      background: #FFFFFF;
+      border: 1px solid #D6E6FA;
+      box-shadow: 0 8px 18px rgba(37, 62, 147, 0.10);
+    }
+
+    .orbit-node.o1 { left: 20px; top: 24px; color: #253E93; }
+    .orbit-node.o2 { right: 18px; top: 28px; color: #00C73C; }
+    .orbit-node.o3 { left: 34px; bottom: 20px; color: #253E93; }
+    .orbit-node.o4 { right: 30px; bottom: 18px; color: #00C73C; }
+
+    .orbit-card {
+      position: absolute;
+      right: 22px;
+      width: 136px;
+      height: 33px;
+      border-radius: 12px;
+      background: #FFFFFF;
+      border: 1px solid #D6E6FA;
+      box-shadow: 0 8px 18px rgba(37, 62, 147, 0.08);
+      color: #253E93;
+      font-size: 8px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      padding-left: 12px;
+    }
+
+    .orbit-card::before {
+      content: attr(data-step);
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background: #253E93;
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7px;
+    }
+
+    .orbit-card.oc1 { top: 62px; }
+    .orbit-card.oc2 { top: 102px; }
+    .orbit-card.oc3 { top: 142px; }
+
+    .orbit-banner {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 16px;
+      height: 28px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #071E55, #253E93);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+    }
+
   </style>
 </head>
 
@@ -2941,8 +3088,8 @@
   <header>
     <span class="tag"><a href="https://www.youtube.com/todaycode" target="_blank"
         style="color: inherit; text-decoration: none;">오늘코드 PPTX Design Trends 2026</a></span>
-    <h1>모던 <span>디자인</span><br>트렌드 34</h1>
-    <p>프레젠테이션에 바로 적용 가능한 현대적 디자인 스타일 34가지</p>
+    <h1>모던 <span>디자인</span><br>트렌드 36</h1>
+    <p>프레젠테이션에 바로 적용 가능한 현대적 디자인 스타일 36가지</p>
   </header>
 
   <div class="grid">
@@ -3701,52 +3848,70 @@
       </div>
     </div>
 
-    <!-- 35 NAVER Corporate Report -->
+
+    <!-- 35 녹빛 클라우드 감시자 -->
     <div class="card">
-      <div class="preview preview-naver-corp">
-        <div class="naver-corp-bg-pattern"></div>
-        <div class="naver-corp-header">
-          <div>
-            <span class="naver-corp-title-num">1. </span>
-            <span class="naver-corp-title-text">개요</span>
-          </div>
-          <span class="naver-corp-badge">대외비</span>
+      <div class="preview preview-cloud-sentinel">
+        <div class="cloud-sentinel-rule"></div>
+        <div class="cloud-sentinel-title">클라우드 보안 구조</div>
+        <div class="cloud-sentinel-badge">대외비</div>
+        <div class="cloud-sentinel-arch">
+          <div class="cloud-node n1">VPC</div>
+          <div class="cloud-node n2">IAM</div>
+          <div class="cloud-node n3">LOG</div>
+          <div class="cloud-node n4">탐지</div>
+          <div class="cloud-node n5">대응</div>
+          <div class="cloud-line l1"></div>
+          <div class="cloud-line l2"></div>
+          <div class="cloud-line l3"></div>
+          <div class="cloud-line l4"></div>
         </div>
-        <div class="naver-corp-diagram">
-          <div class="naver-corp-row">
-            <div class="naver-corp-box dark">ESM</div>
-            <div class="naver-corp-box mid">Logstash</div>
-            <div class="naver-corp-box light">RE API</div>
-          </div>
-          <div class="naver-corp-row">
-            <div class="naver-corp-box accent">ARA 모듈</div>
-            <div class="naver-corp-box dark">RR DB</div>
-          </div>
-          <div class="naver-corp-row">
-            <div class="naver-corp-box mid">영향력 검증</div>
-            <div class="naver-corp-box light">결과 View</div>
-            <div class="naver-corp-box pale">ELK</div>
-          </div>
-        </div>
-        <div class="naver-corp-highlight"></div>
-        <div class="naver-corp-footer">
-          <span class="naver-corp-pagenum">3 / 보안 분석 보고서</span>
-          <span class="naver-corp-copyright">ⓒ NAVER Corp.</span>
-        </div>
+        <div class="cloud-callout c1" data-num="1">위협 흐름</div>
+        <div class="cloud-callout c2" data-num="2">통제 매핑</div>
+        <div class="cloud-callout c3" data-num="3">운영 점검</div>
+        <div class="cloud-sentinel-footer"><span>35 / 보안 교육 플레이북</span><span>GREEN SENTINEL</span></div>
       </div>
       <div class="card-info">
-        <div class="card-num">35 — NAVER CORPORATE REPORT</div>
-        <div class="card-title">네이버 기업 보고서</div>
-        <div class="card-desc">4:3 비율, 나눔고딕/맑은 고딕 폰트 시스템, 블루 다이어그램 캐스케이드(#336699→#76B5D4), 보안등급 뱃지(일반/대외비/기밀), 슬라이드 번호 바닥글. 보안 분석, 프로젝트 현황 등 내부 보고서에 최적화된 기업 표준 양식.</div>
-        <div class="tags"><span class="tag-pill">corporate</span><span class="tag-pill">보고서</span><span class="tag-pill">NAVER</span><span class="tag-pill">4:3</span></div>
+        <div class="card-num">35 — 녹빛 클라우드 감시자</div>
+        <div class="card-title">녹빛 클라우드 감시자</div>
+        <div class="card-desc">흰 캔버스 위 녹색 보안 액센트, 구조도·스크린샷·통제 매핑을 정돈된 카드와 콜아웃으로 설명하는 클라우드 보안 교육형 스타일. 대외비 뱃지, 보고서 푸터, 번호형 감시 포인트가 핵심.</div>
+        <div class="tags"><span class="tag-pill">cloud security</span><span class="tag-pill">emerald</span><span class="tag-pill">training</span></div>
       </div>
     </div>
+
+    <!-- 36 인지 궤도 플레이북 -->
+    <div class="card">
+      <div class="preview preview-cognitive-orbit">
+        <div class="orbit-title">업무를 궤도에 올리는 법</div>
+        <div class="orbit-badge">대외비</div>
+        <div class="orbit-system">
+          <div class="orbit-ring r1"></div>
+          <div class="orbit-ring r2"></div>
+          <div class="orbit-core">AI</div>
+          <div class="orbit-node o1">✓</div>
+          <div class="orbit-node o2">↻</div>
+          <div class="orbit-node o3">⌁</div>
+          <div class="orbit-node o4">↗</div>
+        </div>
+        <div class="orbit-card oc1" data-step="1">업무 정리</div>
+        <div class="orbit-card oc2" data-step="2">적용 경험</div>
+        <div class="orbit-card oc3" data-step="3">확산 구조</div>
+        <div class="orbit-banner">AI는 기능이 아니라, 업무 궤도를 바꾸는 습관</div>
+      </div>
+      <div class="card-info">
+        <div class="card-num">36 — 인지 궤도 플레이북</div>
+        <div class="card-title">인지 궤도 플레이북</div>
+        <div class="card-desc">화이트 캔버스, 녹색과 딥블루의 카드 구조, AI를 중심으로 업무·학습·확산 흐름이 궤도처럼 연결되는 전환 교육형 스타일. 이미지 슬롯과 네이티브 텍스트 오버레이에 최적화.</div>
+        <div class="tags"><span class="tag-pill">AI enablement</span><span class="tag-pill">orbit</span><span class="tag-pill">image slots</span></div>
+      </div>
+    </div>
+
 
   </div>
 
   <footer>
     <p><a href="https://github.com/pkkgh1519/pptx-design-styles" target="_blank"
-        style="color: inherit; text-decoration: none;">TodayCode · PPTX Design Trends 2026 · 오늘코드 · 35 Styles</a></p>
+        style="color: inherit; text-decoration: none;">TodayCode · PPTX Design Trends 2026 · 오늘코드 · 36 Styles</a></p>
   </footer>
 
 </body>
