@@ -1,6 +1,6 @@
 # 🎨 PPTX Modern Design Styles Skill
 
-[English](README.md) | [한국어](README_ko.md) | [Design Preview 🖼️](https://corazzon.github.io/pptx-design-styles/preview/modern-pptx-designs.html) | [<span style="color:red">유튜브 영상 가이드</span>](https://youtu.be/5qxrY88lW_Q)
+[English](README.md) | [한국어](README_ko.md) | [Published Preview 🖼️](https://pkkgh1519.github.io/pptx-design-styles/preview/modern-pptx-designs.html) | [Local HTML](preview/modern-pptx-designs.html) | [<span style="color:red">유튜브 영상 가이드</span>](https://youtu.be/5qxrY88lW_Q)
 
 <p align="center">
   <a href="https://youtu.be/5qxrY88lW_Q">
@@ -101,8 +101,12 @@ Explore a few of the **36 distinct styles** available in this collection.
 | 32 | Dark Command Dashboard | Commanding · Dark-UI | Developer pitches, AI/SaaS |
 | 33 | Workshop Playbook (Dark) | Dark · Guided · Trust | Dark workshops, dev onboarding |
 | 34 | Terminal Workshop (Dark) | Hacker · Terminal · Code | Coding workshops, dev education |
-| 35 | 녹빛 클라우드 감시자 | 명료함 · 클라우드 보안 · 교육형 | NCP/cloud security education |
-| 36 | 인지 궤도 플레이북 | 명료함 · 인지 궤도 · 확산형 | AX mindset education, AI adoption programs |
+| 35 | 클라우드 보안 브리핑 | Clear · Cloud security · Training | Cloud security education (native 16:9) |
+| 36 | AI 전환 플레이북 | Clear · AI transformation · Enablement | AI adoption and role-based training (native 4:3) |
+
+The previous names `녹빛 클라우드 감시자` and `인지 궤도 플레이북` remain accepted as deprecated aliases.
+
+For Styles 35 and 36, public mode omits branding and identifiers copied from the source template, including source logos, default confidentiality labels, author/team text, and source-company footers. A company or product explicitly supplied as the presentation subject may remain as authorized native text. Source-faithful template elements require an explicit, authorized origin compatibility mode request.
 
 ---
 
@@ -118,8 +122,11 @@ pptx-design-styles/
 │   └── templates/        # PPTX templates for selected styles
 ├── preview/
 │   └── modern-pptx-designs.html
-└── references/
-    └── styles.md         # Full specs: HEX, fonts, layout, signature elements
+├── references/
+│   ├── image-slot-workflow.md
+│   └── styles.md         # Full specs: HEX, fonts, layout, signature elements
+└── scripts/
+    └── validate_style_registry.py
 ```
 
 ---
@@ -128,22 +135,26 @@ pptx-design-styles/
 
 | Goal | Recommended |
 |------|-------------|
-| Tech / AI / Startup | Glassmorphism, Aurora Neon, Cyberpunk, SciFi Holographic, Dark Command Dashboard, Workshop Playbook (Dark), Terminal Workshop (Dark), 녹빛 클라우드 감시자, 인지 궤도 플레이북 |
-| Corporate / Finance | Swiss International, Monochrome, Editorial Magazine |
-| Korean Corporate / Security Report | 녹빛 클라우드 감시자, Swiss International, Monochrome Minimal |
-| Training / Workshop / Onboarding | Workshop Playbook, Workshop Playbook (Dark), Terminal Workshop (Dark), 녹빛 클라우드 감시자, 인지 궤도 플레이북, Swiss International, Bento Grid |
-| Brand / Marketing | Gradient Mesh, Typographic Bold, Duotone Split |
+| Tech / AI / Startup | Glassmorphism, Aurora Neon Glow, Cyberpunk Outline, SciFi Holographic Data, Dark Command Dashboard, Workshop Playbook (Dark), Terminal Workshop (Dark) |
+| Corporate / Finance | Swiss International, Monochrome Minimal, Editorial Magazine |
+| Korean Corporate / Security Report | 클라우드 보안 브리핑, Swiss International, Monochrome Minimal |
+| Training / Workshop / Onboarding | Workshop Playbook, Workshop Playbook (Dark), Terminal Workshop (Dark), 클라우드 보안 브리핑, AI 전환 플레이북, Swiss International, Bento Grid |
+| AI Transformation / Enablement | AI 전환 플레이북, Workshop Playbook, Bento Grid, Swiss International |
+| Brand / Marketing | Gradient Mesh, Typographic Bold, Duotone Color Split |
 | Product / App / UX | Bento Grid, Claymorphism, Pastel Soft UI |
-| Entertainment / Gaming | Retro Y2K, Dark Neon Miami, Vaporwave, Memphis Pop |
-| Eco / Wellness | Hand-crafted Organic, Nordic Minimalism, Dark Forest |
+| Entertainment / Gaming | Retro Y2K, Dark Neon Miami, Vaporwave, Memphis Pop Pattern |
+| Eco / Wellness | Hand-crafted Organic, Nordic Minimalism, Dark Forest Nature |
 | Luxury / Premium | Art Deco Luxe, Monochrome Minimal, Dark Academia |
-| Science / Biotech | Liquid Blob, SciFi Holographic, Aurora Neon |
+| Science / Biotech | Liquid Blob Morphing, SciFi Holographic Data, Aurora Neon Glow |
 
 ---
 
 ### 📱 Full Collection Preview
+
+Browse all 36 styles in the [published gallery](https://pkkgh1519.github.io/pptx-design-styles/preview/modern-pptx-designs.html) or open the [local HTML design preview](preview/modern-pptx-designs.html).
+
 <p align="center">
-  <img src="assets/images/full_preview.png" width="100%" alt="Full Collection Preview">
+  <a href="preview/modern-pptx-designs.html"><img src="assets/images/full_preview.png" width="100%" alt="Full preview of all 36 PPTX design styles"></a>
 </p>
 
 ---

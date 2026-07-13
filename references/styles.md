@@ -254,7 +254,7 @@ Each style is documented with:
 
 ---
 
-## 07. Swiss International Style
+## 07. Swiss International
 
 **Mood**: Functional, authoritative, timeless, corporate  
 **Best For**: Consulting, finance, government, institutional presentations
@@ -457,7 +457,7 @@ Each style is documented with:
 
 ---
 
-## 12. Duotone / Color Split
+## 12. Duotone Color Split
 
 **Mood**: Dramatic, comparative, energetic, bold  
 **Best For**: Strategy decks, before/after, compare/contrast slides
@@ -1663,361 +1663,210 @@ Each style is documented with:
 
 ---
 
-## 35. 녹빛 클라우드 감시자
+## 35. 클라우드 보안 브리핑
 
-**Mood**: 명료함, 녹빛, 클라우드 보안, 한국 기업 교육형  
-**Best For**: NCP/cloud security education, infrastructure analysis, architecture walkthroughs, MITRE ATT&CK/D3FEND threat analysis, Korean security briefings  
+**Style ID**: `cloud-security-briefing`
+
+**Legacy Alias**: `녹빛 클라우드 감시자`
+
+**Mood**: 명료함, 녹색 신호, 클라우드 보안, 한국 기업 교육형
+
+**Best For**: cloud security education, infrastructure analysis, architecture walkthroughs, MITRE ATT&CK/D3FEND analysis, Korean security briefings
+
 **Reference Template**: `assets/templates/ncp-cloud-security-training-template.pptx`
 
-> **Template Origin**: Korean cloud security training deck, “클라우드 보안 및 인프라 이해와 분석”. Public style name is concept-first and Korean: a green-hued sentinel over cloud infrastructure, without proper nouns. 48-slide 16:9 deck with white canvas, green accents, `대외비` badge, report footer, architecture screenshots, MITRE ATT&CK/D3FEND tables, and numbered security callouts.
+> **Template Origin**: A 48-slide, 16:9 Korean cloud-security training deck with white canvas, green accents, classification badge, report footer, architecture screenshots, MITRE ATT&CK/D3FEND tables, and numbered callouts. Source-specific names and marks are provenance, not public-style defaults.
 
-### Slide Size
-- **16:9** (13.333in × 7.5in) — standard widescreen, not 4:3
+### Modes and Asset Safety
 
-### Background
-- **Master/content background**: Pure white `#FFFFFF`
-- **Cover / section / end slides**: White canvas with large NCP-green headline, extreme whitespace, no image background
-- **Content slides**: White canvas with thin top horizontal rule and a second divider below the title
-- Light gray or pale-blue panels may sit on top of the white canvas for definitions, conclusions, and table-heavy analysis
+- **`public_default` (default)**: Use neutral green/blue tokens, generic cloud terminology, and a neutral footer such as `Cloud Security Briefing`. Omit copied NCP/NAVER marks, `대외비`, original document titles, source footers, and source organization names.
+- **`origin_compat_mode`**: Enable only for an explicit faithful-reproduction request with approved source assets. Source NCP/NAVER marks and `대외비` may then be preserved as native `brand-protected` elements; verified screenshots remain `screenshot/evidence`. Never generate or redraw these assets.
+- Classify every raster asset using `references/image-slot-workflow.md`. Architecture evidence is preserved, exact diagrams are rebuilt natively, and only non-semantic atmosphere may be generated.
+
+### Slide Size and Background
+
+- **16:9** (13.333in × 7.5in); do not convert to 4:3 by default.
+- Pure white `#FFFFFF` master/content canvas; cover, section, and end slides use a large green headline and abundant whitespace.
+- Content slides use a thin top rule plus a divider below the title. Pale-blue panels support definitions, conclusions, and dense tables.
 
 ### Colors
 
 | Role | Color | HEX |
 |------|-------|-----|
 | Canvas | Pure white | `#FFFFFF` |
-| Primary accent / section title | NCP green | `#00C73C` |
-| Card header / banner green | Deep NCP green | `#009F0F` |
-| Security marker / badge green | Bright security green | `#07C63C` |
-| Supporting green | PowerPoint green | `#00B050` / `#00BC12` / `#03A94D` |
-| Primary text | Black | `#000000` |
-| Secondary text | Charcoal | `#25282A` |
+| Primary accent | Signal green | `#00C73C` |
+| Card header / banner | Deep green | `#009F0F` |
+| Secondary accent | Bright green | `#07C63C` |
+| Supporting green | Presentation green | `#00B050` / `#00BC12` / `#03A94D` |
+| Primary / secondary text | Black / charcoal | `#000000` / `#25282A` |
 | Muted text / footer | Neutral gray | `#626366` |
 | Rule / border | Light gray | `#B9B9B9` / `#D9D9D9` |
-| Info panel fill | Pale blue | `#E5F6FF` / `#E9F3FF` |
-| Table header fill | Very pale blue | `#E9F3FF` |
-| Architecture diagram navy | Technical navy | `#154975` |
-| Warning / critical | Deep red | `#C00000` |
-| Incident / attack emphasis | Orange | `#FF5800` |
+| Info / table fill | Pale blue | `#E5F6FF` / `#E9F3FF` |
+| Diagram navy | Technical navy | `#154975` |
+| Warning / incident | Deep red / orange | `#C00000` / `#FF5800` |
 
 ### Fonts
-- **Cover title**: NanumSquare ExtraBold / 나눔스퀘어 Bold, 44–46pt, `#00C73C`
-- **Section divider title**: NanumSquare ExtraBold / 나눔스퀘어 Bold, 34–40pt, `#00C73C`
-- **Content slide title**: NanumSquare ExtraBold / 나눔스퀘어 Bold, 24–34pt, `#000000`, left-aligned
-- **Card heading / green banner**: NanumSquare Bold, 16–24pt, white on green or black on white
-- **Body copy**: NanumSquare / 나눔스퀘어, 10–14pt, `#000000` or `#25282A`
-- **Tables / diagram labels**: NanumSquare, Pretendard, or Malgun Gothic, 8–10.5pt
-- **Footer / security label**: NanumSquare, 8–9pt, `#626366` or muted gray
-- **Technical English labels**: Pretendard / NanumSquare, 8–12pt; keep English terms readable and compact
+
+- Cover: NanumSquare ExtraBold, 44–46pt, `#00C73C`; section divider: 34–40pt.
+- Content title: NanumSquare ExtraBold, 24–34pt, `#000000`; card/banner: NanumSquare Bold, 16–24pt.
+- Body: NanumSquare, 10–14pt; tables/diagram labels: NanumSquare, Pretendard, or Malgun Gothic, 8–10.5pt.
+- Footer/classification label: NanumSquare, 8–9pt. Classification text appears only when supplied and approved.
 
 ### Layout Structure
 
-**Core Deck Rhythm**
-1. **Cover**: Giant green title in the upper-left, short black rule, author/team/classification block lower-left, large empty white field
-2. **TOC**: Minimal list layout with small green section numbers and abundant whitespace
-3. **Section Divider**: Large green numbered title in the upper-left only, otherwise blank white canvas
-4. **Content Slide**: Thin top rule, large left title, `대외비` top-right, divider line under title, content area, footer with slide number + deck title
-5. **End Slide**: Sparse green “End of Document / Thank You” text on white canvas
+1. **Cover**: Large upper-left green title, short black rule, optional native author block, large empty white field.
+2. **TOC / Section Divider**: Small green numbers or a large numbered title with abundant whitespace.
+3. **Content Slide**: Thin top rule, left title, divider, content field, and neutral slide-number/footer pattern.
+4. **End Slide**: Sparse green closing text on white.
 
-**Content Slide Header/Footer**
-- Top horizontal rule spans nearly full width, using light gray `#B9B9B9` / `#D9D9D9`
-- Title sits below the top rule, left-aligned, with section number prefix (`4.2`, `5.1`, etc.)
-- `대외비` appears in the top-right corner in muted gray on every content slide
-- Footer bottom-left uses `N / 클라우드 보안 및 인프라 이해와 분석` pattern in light gray
-
-**Canonical Slide Types**
-1. **Definition Panel + Change Cards**: Wide pale-gray/pale-blue definition block above 4–5 white cards; each card uses green mini-rule under its heading
-2. **Feature Cards**: 3–5 card row with thin gray borders, faint icons, concise headline + body copy
-3. **Service / Category Table**: Green section label or banner with structured table blocks below
-4. **Shared Responsibility Matrix**: Table or split comparison using green outline/highlight for the key cloud-security responsibility zone
-5. **Security Model Columns**: 3-column cards with green top bars and stacked bullet detail
-6. **Architecture Screenshot Walkthrough**: Large NCP architecture screenshot left/center with red numbered boxes; right side has green numbered circle callouts and explanatory rows
-7. **Network / IAM / Logging / Operations Detail**: Architecture mini-diagram on one side, explanation bullets and configuration table on the other
-8. **MITRE ATT&CK Reference Table**: Dense but rule-based table, pale-blue headers, source text in gray panels
-9. **Attack Chain Flow**: 4–7 rounded cards connected by a thick green horizontal arrow, each card showing stage, tactic, description, and detection rule
-10. **D3FEND / Control Mapping**: Screenshot or matrix with green title strip and annotated defense-control mapping
-11. **Cloud-Native Top 10 Grid**: Compact grid of numbered risk cards, green headers for primary domains, blue headers for subdomains
-12. **Conclusion Dual Cards**: Two large white cards with green rounded title bars and green numbered subheads
-
-**Card Architecture**
-- White card fill `#FFFFFF`, thin gray border `#D9D9D9`, minimal or no shadow
-- Green rounded title bars (`#009F0F` or `#07C63C`) for major grouped content
-- Small green underline/rule under card headings for emphasis
-- Green circular number badges (`#00C73C` / `#07C63C`) for ordered security controls and attack stages
-- Pale-blue insight panels (`#E5F6FF` / `#E9F3FF`) for top-level conclusion or table header zones
+Canonical content types include definition/change cards, feature cards, service tables, shared-responsibility matrices, security-model columns, verified architecture screenshot walkthroughs, network/IAM/logging details, MITRE ATT&CK/D3FEND references, attack-chain flows, control mappings, risk grids, and dual-card conclusions.
 
 ### Signature Elements
-- **NCP green as the single identity color**: Use `#00C73C`, `#009F0F`, and `#07C63C` consistently for section dividers, card headers, callout numbers, and emphasized keywords
-- **White corporate training canvas**: The deck feels like a security education/report hybrid, not a dark cyber deck
-- **Rule-based report frame**: Thin top rule, title divider, top-right `대외비`, and bottom-left slide footer on content slides
-- **Green rounded banners**: Major grouped content uses full-width rounded green title bars with white text
-- **Green mini-underlines**: Cards often include a short green rule below black headings
-- **Numbered green circles**: Ordered security controls, architecture risks, and MITRE stages use green numbered badges
-- **Architecture-first evidence**: Use screenshots/diagrams with red boxes and adjacent callout lists for NCP/VPC/security architecture analysis
-- **Pale-blue conclusion strips**: Key takeaways may use a full-width `#E5F6FF` strip with green emphasized words
-- **Dense but organized tables**: Tables are acceptable when bordered lightly and paired with green/pale-blue hierarchy
 
-### Section Color Consistency
-- Keep green as the primary accent across all sections; do not rotate section colors
-- Use red only for screenshot annotations, attack/critical warning, or negative findings
-- Use orange/purple sparingly for MITRE stage labels or incident emphasis only
-- Use navy only inside architecture diagrams or technical labels, not as a dominant slide color
+- White report/training canvas with signal-green section accents, rounded banners, mini-underlines, and numbered circles.
+- Thin gray report rules and a neutral footer; public default has no copied badge or organization mark.
+- Verified architecture screenshots use native red boxes and adjacent numbered callouts; fabricated screenshots are forbidden.
+- Dense tables remain lightly bordered and use green/pale-blue hierarchy.
+- Red is limited to evidence annotations or critical findings; orange/purple are functional accents only; navy stays inside technical diagrams.
 
 ### Avoid
-- **Dark cyber backgrounds** — this is a white corporate security-training deck, not Aurora/Cyberpunk
-- **4:3 slide ratio** — use 16:9 only
-- **Gradients, glassmorphism, heavy shadows, or neon effects**
-- **Random accent colors** — green is the identity; red/orange/purple are functional only
-- **Decorative or serif fonts** — stick to NanumSquare / Pretendard / Malgun Gothic family
-- **Missing `대외비` badge or footer on content slides**
-- **Text-only content slides** without cards, tables, diagrams, or callout panels
-- **Full-bleed photos** — use screenshots/architecture diagrams as evidence, not atmosphere
-- **Overly thick borders** — borders should stay light and report-like
+
+- Dark cyber backgrounds, 4:3 conversion, gradients, glassmorphism, heavy shadows, neon effects, random accent colors, decorative fonts, thick borders, or text-only content slides.
+- Full-bleed atmosphere photos in place of evidence.
+- Copied brand/product names, logos, source footers, or classification marks in `public_default`.
+- Generated architecture screenshots, evidence, brand marks, or exact security diagrams in either mode.
 
 ---
 
-## 36. 인지 궤도 플레이북
+## 36. AI 전환 플레이북
 
-**Mood**: 명료함, 인지적, 궤도형, 전환 플레이북  
-**Best For**: AX/AI transformation mindset education, role-based enablement, AI adoption programs, internal training, prompt/workflow literacy, scenario-based generated-image decks  
+**Style ID**: `ai-transformation-playbook`
+
+**Legacy Alias**: `인지 궤도 플레이북`
+
+**Mood**: 명료함, 역할 기반, 교육형, 확산 지원
+
+**Best For**: AI transformation mindset education, role-based enablement, adoption programs, internal training, prompt/workflow literacy, scenario-based visual decks
+
 **Reference Template**: `assets/templates/ax-mindset-enablement-template.pptx`
 
-> **Template Origin**: Korean corporate AX training deck, “AX 를 위한 마인드셋”. Public style name is concept-first and Korean: cognitive workstreams orbiting an enablement playbook, without proper nouns. 19-slide 4:3 deck with white canvas, NIT SERVICE footer, `대외비` badge, NanumSquare typography, green/blue icon cards, role-based training paths, and large scenario-specific raster visuals.
+> **Template Origin**: A 19-slide, 4:3 Korean corporate AI-enablement deck with white canvas, green/blue icon cards, role-based learning paths, source footer/classification marks, and large raster visuals. Source-specific names and marks are provenance, not public-style defaults.
 
-### Template Analysis
+### Modes and Asset Safety
 
-- **Slide count**: 19
-- **Slide size**: 4:3 (10in × 7.5in)
-- **Media**: 92 media files; mostly PNG with 2 EMF assets
-- **Picture/raster shapes**: 105
-- **Deck-level image component area**: **33.64%** using visible picture/raster area capped per slide
-- **30% gate decision**: **Auto-define image slots**
-- **Most image-heavy slides**: 1 (86.31%), 12 (75.65%), 16 (69.14%), 15/18 (53.84%), 13 (53.40%), 19 (52.11%), 14 (45.20%)
+- **`public_default` (default)**: Use neutral corporate terms, signal green/deep blue, and a generic `AI Transformation Playbook` footer. Omit copied NIT/NAVER marks, `대외비`, source footer, original author/team names, and source organization names.
+- **`origin_compat_mode`**: Enable only for an explicit faithful-reproduction request with approved source assets. Supplied NIT/NAVER marks, source footer, and `대외비` may then be preserved natively with recorded provenance; never include them in generation prompts.
+- Apply the role classification and executable manifest in `references/image-slot-workflow.md` before generating or reusing any raster asset.
 
-### Slide Size
+### Template Analysis and Review Gate
 
-- **4:3** (10in × 7.5in) — preserve this ratio unless the user explicitly requests a 16:9 adaptation
+- Slide count: 19; slide size: 4:3 (10in × 7.5in); media: 92 files, mostly PNG with 2 EMF assets; picture/raster shapes: 105.
+- The earlier capped-area measurement reported **33.64%** and image-heavy slides 1, 12, 16, 15/18, 13, 19, and 14. Remeasure with clipped visible-image polygon union and retain slide-level evidence before relying on the percentage.
+- A ratio at or above 30% triggers **asset-role review**, not automatic slot definition or generation. Create catalog entries only for recurring replaceable assets.
 
-### Background
+### Slide Size and Background
 
-- **Main canvas**: Pure white `#FFFFFF`
-- **Content frame**: White canvas with thin top rule, left-aligned section title, top-right `대외비`, bottom-left NIT SERVICE mark/footer
-- **Cards and panels**: Rounded rectangles with white or pale-blue fill, thin blue/gray borders, soft corporate spacing
-- **Large image slides**: Keep the image as a controlled slot on the right, lower half, or central process band; overlay all text natively
+- Preserve **4:3** (10in × 7.5in) unless the user explicitly requests a 16:9 adaptation.
+- Use pure white `#FFFFFF`, thin report rules, rounded white/pale-blue cards, and generous margins.
+- Public default uses a neutral footer and no source classification/organization mark. Approved origin marks are native-only in `origin_compat_mode`.
 
 ### Colors
 
 | Role | Color | HEX |
 |------|-------|-----|
 | Canvas | Pure white | `#FFFFFF` |
-| Primary AX green | NAVER/NIT green | `#00C73C` |
-| Bright accent green | Signal green | `#07C63C` |
-| Deep corporate blue | Primary blue | `#253E93` |
-| Link/process blue | Strong blue | `#0F39CF` |
-| Soft panel blue | Pale blue | `#F2F8FE` |
-| Supporting blue | Muted blue | `#92AFD7` |
-| Primary text | Charcoal | `#25282A` |
-| Secondary text | Gray | `#626366` |
-| Warm highlight | Cream | `#FDF8E2` |
-| Positive/ready accent | Mint | `#A6E8C2` / `#DFF7EA` |
-| Warning/constraint accent | Soft red | `#FCE9E9` / `#EB5757` |
+| Primary / bright accent | Signal green | `#00C73C` / `#07C63C` |
+| Deep / process blue | Corporate blue | `#253E93` / `#0F39CF` |
+| Soft / supporting blue | Pale / muted blue | `#F2F8FE` / `#92AFD7` |
+| Primary / secondary text | Charcoal / gray | `#25282A` / `#626366` |
+| Warm / positive fill | Cream / mint | `#FDF8E2` / `#A6E8C2` / `#DFF7EA` |
+| Warning | Soft red | `#FCE9E9` / `#EB5757` |
 
 ### Fonts
 
-- **Cover title**: NanumSquare ExtraBold / 나눔스퀘어라운드 ExtraBold, 28–36pt, `#25282A`
-- **Section/content title**: NanumSquare ExtraBold / 나눔스퀘어 Bold, 18–24pt; green prefix bar or title accent in `#00C73C`
-- **Card headings**: NanumSquare ExtraBold, 11–16pt, `#253E93` or `#25282A`
-- **Body text**: NanumSquare / 나눔스퀘어, 8–11pt, `#25282A`
-- **Labels and captions**: NanumSquare, 6.5–9pt, `#626366`
-- **Footer / security label**: NanumSquare, 6–8pt, light gray or green-gray
+- Cover: NanumSquare ExtraBold, 28–36pt, `#25282A`; section/content title: NanumSquare ExtraBold, 18–24pt.
+- Card heading: NanumSquare ExtraBold, 11–16pt; body: NanumSquare, 8–11pt; labels/captions: 6.5–9pt.
+- Footer/classification label: NanumSquare, 6–8pt; classification text is conditional, not a default decoration.
 
 ### Layout Structure
 
-**Core Deck Rhythm**
-1. **Cover**: Left title block + author/team text; right-side AI hero illustration slot with light wave lines and icon nodes
-2. **Concept explanation**: 3-column journey cards such as 아날로그 → DX → AX with icon/illustration panels and arrow connectors
-3. **Why/what/how sequences**: Row of 5–9 rounded cards, each with circular number badge and simple icon
-4. **DX/AX comparison matrix**: Three-column or two-side comparison using green, red, and blue grouped panels
-5. **Preparation framework**: Multiple card rows with blue icons, pale-blue lower insight strip, and bottom note panel
-6. **Role/training path**: Matrix cards for roles, levels, track, and support resources
-7. **Large visual explanation**: Learning curve, mindset quote, or barrier map as image slot with native labels and callouts
-8. **End page**: Minimal green “End of Document / Thank You” text on white canvas
+1. **Cover**: Left native title/author block plus an optional right-side abstract AI hero.
+2. **Concept and process**: Native three-column journey cards, comparison matrices, numbered sequences, and arrow connectors.
+3. **Preparation and enablement**: Native card rows, role/level/training matrices, and pale-blue insight strips.
+4. **Large explanation**: Native learning curve or barrier matrix; an approved source visual may be preserved instead.
+5. **Summary / End**: Optional decorative atmosphere behind native quote text, then a sparse green closing page.
 
-**Content Slide Frame**
-- Top-left title begins with a green vertical bar or bracket-like accent
-- Top-right `대외비` in small green/gray text
-- Bottom-left NIT SERVICE logo/mark and bottom-right light page footer
-- Use generous white margins; cards sit in a centered content field with consistent gutters
+Titles begin with a green bar/bracket. Cards use white fill, pale-blue borders, minimal shadow, blue/green number circles, and thin blue/gray process arrows.
 
-**Card Architecture**
-- Rounded rectangles, white fill, thin pale-blue border, minimal shadow
-- Icon at top or left, heading below/next to icon, short explanation underneath
-- Numbered circles in blue/green for ordered steps
-- Pale-blue insight strip across the bottom with a target/lightbulb icon
-- Use arrows only for process progression; keep them thin and blue/gray
+### Image Structure and Role Classification
 
-### Image Structure Analysis
+| Catalog family | Typical source | Role | Treatment |
+|---|---|---|---|
+| `hero_ai_orchestration` | Cover AI tile / abstract node field | `generative/decorative` | Conditional generation candidate; no text, logo, person, or exact workflow. |
+| `dx_to_ai_bridge` | Journey cards and arrows | `native-rebuild` | Build cards, labels, icons, and connectors natively. |
+| `learning_curve_visual` | Curve, stages, milestones | `native-rebuild` or `preserve/reuse` | Rebuild semantic structure natively; reuse only an approved source asset. |
+| `role_enablement_visual` | Role/training/support cards | `native-rebuild` or `preserve/reuse` | Keep roles, levels, paths, and labels native. |
+| `mindset_atmosphere` | Lower-third wave/dot texture | `generative/decorative` | Conditional atmosphere candidate beneath native quote text. |
+| `barrier_matrix_visual` | Barrier/solution matrix | `native-rebuild` or `preserve/reuse` | Never generate matrix cells, dividers, labels, or relationships. |
+| Source logo/footer/classification | Approved template marks | `brand-protected` | Native-only in `origin_compat_mode`; never prompt or generate. |
 
-The template is a hybrid native-shape + raster-visual design. Raster images are structural, not merely decorative, because several slide types rely on large generated/illustrated visuals.
+Only the hero and non-semantic atmosphere families are generation candidates. Process, learning curve, role cards, and matrices remain native or use an approved preserved source.
 
-| Slot Family | Source Pattern | Typical Slides | Placement |
-|-------------|----------------|----------------|-----------|
-| AI hero illustration | Large AI tile with node/icon network and wave background | 1 | Right/center, occupying ~55–85% visual field |
-| Journey/process visual | Step cards with icons and directional arrows | 2, 3, 8, 11 | Center row or lower process band |
-| Learning curve visual | Blue curve with stage annotations and icon cards | 12 | Center/right large chart-like image |
-| Role enablement visual | Role/training/support matrices with icon cards | 13–15, 18 | Center grid or 2×2 support cards |
-| Mindset quote visual | Dark blue bottom banner with quote emphasis | 16 | Lower third image slot under native cards |
-| Barrier matrix visual | Dense barrier/solution matrix | 19 | Central/right matrix background with native labels if regenerated |
-
-### Required Image Slots
-
-Use these slots when creating a new deck in this style. All real text, labels, logos, security markings, and page footers must remain native PPT elements.
+### Slot Catalog and Conditional Instances
 
 ```yaml
-image_slots:
+slot_catalog:
   - id: hero_ai_orchestration
-    slide_type: cover
-    purpose: AX/AI transformation metaphor for the deck opening
-    aspect_ratio: "4:3-safe, right-weighted"
-    placement: "right 55-65%, behind native title and author block"
-    output_role: "decorative_or_metaphor"
-    text_in_image: false
-    overlay_native_text: true
-    style_tokens:
-      palette: ["#FFFFFF", "#00C73C", "#07C63C", "#253E93", "#F2F8FE"]
-      mood: "clean Korean corporate AI enablement"
-      motif: "AI tile, connected nodes, workflow icons, soft wave lines"
-    forbidden_content:
-      - confidential labels
-      - company logos
-      - readable Korean or English text
-      - real people or identifiable faces
-    fallback:
-      - use native rounded AI tile with node lines and icon circles
-
-  - id: dx_to_ax_bridge
-    slide_type: concept_transition
-    purpose: show progression from analog or DX work to AX-enabled work
-    aspect_ratio: "wide row"
-    placement: "center content band"
-    output_role: "process_metaphor"
-    text_in_image: false
-    overlay_native_text: true
-    style_tokens:
-      palette: ["#F2F8FE", "#253E93", "#00C73C"]
-      motif: "three-stage bridge, documents, data, AI assistant, arrows"
-    forbidden_content:
-      - exact labels inside image
-      - UI screenshots
-    fallback:
-      - build native three-card process row
-
+    eligible_slide_types: [cover, section_opener]
+    role: generative/decorative
+    purpose: non-semantic AI-enabled work atmosphere
+    fallback: native_ai_tile
+  - id: mindset_atmosphere
+    eligible_slide_types: [mindset_summary, closing_transition]
+    role: generative/decorative
+    purpose: non-semantic wave and dot texture behind native text
+    fallback: native_blue_panel
+  - id: dx_to_ai_bridge
+    eligible_slide_types: [concept_transition]
+    role: native-rebuild
+    fallback: native_three_card_process
   - id: learning_curve_visual
-    slide_type: learning_curve
-    purpose: explain adoption journey from awareness to habit and applied experience
-    aspect_ratio: "wide chart area"
-    placement: "center/right 70%, with native side callouts"
-    output_role: "conceptual_chart_backdrop"
-    text_in_image: false
-    overlay_native_text: true
-    style_tokens:
-      palette: ["#FFFFFF", "#253E93", "#92AFD7", "#00C73C"]
-      motif: "smooth learning curve, milestones, small abstract icons"
-    forbidden_content:
-      - axis labels inside image
-      - stage names inside image
-    fallback:
-      - draw native curve and milestone cards
-
+    eligible_slide_types: [learning_curve]
+    role: native-rebuild
+    fallback: native_curve_and_milestones
   - id: role_enablement_visual
-    slide_type: role_training_path
-    purpose: support role-based AX readiness and training route slides
-    aspect_ratio: "grid or matrix"
-    placement: "main content area"
-    output_role: "supporting_illustration"
-    text_in_image: false
-    overlay_native_text: true
-    style_tokens:
-      palette: ["#F2F8FE", "#253E93", "#00C73C"]
-      motif: "people-free role icons, paths, tracks, level cards"
-    forbidden_content:
-      - real people
-      - employee names
-      - exact organization names
-    fallback:
-      - build native role/level matrix cards
-
-  - id: mindset_quote_banner
-    slide_type: mindset_summary
-    purpose: provide a strong closing quote or mindset transition area
-    aspect_ratio: "lower-third banner"
-    placement: "bottom 25-35%"
-    output_role: "decorative_banner"
-    text_in_image: false
-    overlay_native_text: true
-    style_tokens:
-      palette: ["#071E55", "#253E93", "#00C73C", "#FFFFFF"]
-      motif: "deep blue gradient-like corporate banner, subtle wave and dot texture"
-    forbidden_content:
-      - quote text inside image
-      - logos
-    fallback:
-      - native dark-blue rounded rectangle with subtle dot/wave shapes
-
+    eligible_slide_types: [role_training_path]
+    role: native-rebuild
+    fallback: native_role_level_matrix
   - id: barrier_matrix_visual
-    slide_type: appendix_or_risk_matrix
-    purpose: frame barriers, countermeasures, and key actions in a dense appendix slide
-    aspect_ratio: "wide matrix"
-    placement: "center full-width content area"
-    output_role: "background_structure"
-    text_in_image: false
-    overlay_native_text: true
-    style_tokens:
-      palette: ["#FFFFFF", "#253E93", "#F2F8FE", "#00C73C"]
-      motif: "structured matrix background, abstract icons, thin dividers"
-    forbidden_content:
-      - readable matrix text inside image
-      - security-sensitive details
-    fallback:
-      - native table/card matrix
+    eligible_slide_types: [appendix_or_risk_matrix]
+    role: native-rebuild
+    fallback: native_table_card_matrix
 ```
 
-### Prompt Manifest Guidance
+Instantiate a catalog entry only when the slide plan contains the eligible slide and the asset improves the result. Every instance must provide `slide_id`, exact bounds and unit, aspect ratio, fit, focal point, z-order, safe-overlay regions, sanitized prompt/negative constraints when generative, model/version/size/seed-or-approved-hash, output path/hash, fallback, status, and QA evidence using the workflow manifest.
 
-When generating images for this style, produce one prompt per slot and keep all text native. A safe prompt should include:
+### Prompt Guidance
+
+For hero or atmosphere instances, use one sanitized prompt per instance:
 
 ```text
-Clean Korean corporate AX enablement presentation illustration, white background, soft pale-blue panels, NAVER-like green accents (#00C73C, #07C63C), deep corporate blue (#253E93), rounded rectangle UI-like shapes, abstract AI workflow nodes, no readable text, no logos, no people, no watermarks, generous blank space for native PowerPoint labels.
+Clean Korean corporate AI-enablement presentation illustration, white background, soft pale-blue panels, signal-green accents (#00C73C, #07C63C), deep corporate blue (#253E93), abstract workflow nodes and soft wave lines, no readable text, no logos, no people, no UI screenshots, no watermarks, generous blank space for native PowerPoint labels.
 ```
 
-Sanitize prompts before generation. Replace internal team names, `대외비`, system names, customer names, and author names with generic concepts such as “internal operations team”, “AI workflow”, or “corporate training context”.
+Replace internal team/system/customer/author names and classification labels with generic public concepts before generation. Keep all wording, logos, marks, badges, roles, axes, connectors, tables, and captions native.
 
 ### Signature Elements
 
-- **Green section accent**: Title begins with a green vertical bar or bracket marker; keep `#00C73C` as the identity color
-- **NIT/NAVER training frame**: `대외비` top-right and NIT SERVICE/footer marks remain small and consistent
-- **Rounded icon cards**: Most content is explained through icon-led rounded cards, not long paragraphs
-- **Blue-green process logic**: Processes use blue arrows/lines and green success/AX emphasis
-- **Bottom insight strip**: Many slides end with a pale-blue conclusion strip containing a target/lightbulb icon
-- **Image-slot hybrid**: Large AI/learning/role visuals should be regenerated or replaced through slots, while exact wording stays native
-- **Role/level readiness pattern**: Training slides use role, level, track, and support-resource matrices
-- **Minimal closing**: End pages stay sparse with green text and abundant whitespace
-
-### Section Color Consistency
-
-- Use green for AX identity and positive transformation
-- Use deep blue for structure, process, and authority
-- Use pale blue for panels, cards, and insight strips
-- Use red only for pain points, blockers, or constraints; never let red dominate
-- Do not introduce neon, purple, orange, or dark cyber palettes unless adapting to another style
+- Green bar/bracket title accent, rounded icon cards, blue-green process logic, and a pale-blue bottom insight strip.
+- Native role/level/training matrices and native learning/process diagrams.
+- Optional generated hero or atmosphere only; the slide remains complete when either is replaced by its native fallback.
+- Sparse green closing text and abundant white space.
 
 ### Avoid
 
-- **16:9 by default** — preserve 4:3 unless explicitly adapting
-- **Embedding real text in generated images** — all Korean/English wording must be native PPT
-- **Putting `대외비`, NIT/NAVER marks, author/team names, or internal labels into image prompts**
-- **Photorealistic people** — use abstract icons or people-free enablement metaphors
-- **Dark cybersecurity mood** — this is a bright enablement/training style, not a threat-analysis deck
-- **Text-only slides** — use cards, process rows, icons, matrices, or image slots
-- **Overcrowded generated visuals** — generated assets must leave room for native labels and callouts
-- **Random colors** — stay within white, green, deep blue, pale blue, charcoal, and muted gray
+- 16:9 by default, embedded generated text, photorealistic people, dark cyber mood, overcrowded imagery, random colors, or text-only slides.
+- Copied company/product marks, source footer, or classification labels in `public_default`.
+- Any source name, mark, author/team label, customer/internal identifier, or security marking in an image prompt.
+- Generated process cards, curves, role matrices, barrier matrices, screenshots, logos, or classification marks.
 

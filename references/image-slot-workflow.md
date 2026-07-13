@@ -1,135 +1,194 @@
 # Scenario-Based Image Slot Workflow
 
-Use this reference when a deck should combine a native PPT template with scenario-specific raster visuals generated or selected from prompts. The goal is to make decks feel custom without turning text, labels, diagrams, or controls into uneditable images.
+Use this reference when a deck combines native PPT structure with scenario-specific raster visuals. Generated assets may support atmosphere or comprehension, but text, exact diagrams, evidence, controls, and brand/security markings stay editable and verifiable.
+
+## Contents
+
+1. [When to Use](#when-to-use)
+2. [Image-Area Review Gate](#image-area-review-gate)
+3. [Asset Role Classification](#asset-role-classification)
+4. [Workflow](#workflow)
+5. [Slot Catalog and Instances](#slot-catalog-and-instances)
+6. [Executable Manifest](#executable-manifest)
+7. [Prompt, Safety, and Brand Rules](#prompt-safety-and-brand-rules)
+8. [Model Capabilities and Failure Handling](#model-capabilities-and-failure-handling)
+9. [Quantitative QA](#quantitative-qa)
 
 ## When to Use
 
-- The user asks for generated illustrations, GPT/image-model visuals, visual-metaphor prompts, image slots, or image-placeholder templates.
-- The selected style uses large raster visuals, hero illustrations, abstract AI/process metaphors, or scenario-specific background art.
-- A slide needs a custom visual scene that would take too long to build as native PPT shapes, while the message hierarchy remains editable.
+- The user asks for generated illustrations, image-model visuals, visual-metaphor prompts, image slots, or image-placeholder templates.
+- The selected style uses large raster visuals, hero illustrations, abstract process metaphors, or scenario-specific background art.
+- A custom scene would be costly to build with native shapes, while all meaning-bearing content can remain native.
 
-## Template Registration 30% Gate
+Do not use generated images for text-heavy diagrams, tables, charts, legends, screenshots used as evidence, security labels, slide numbers, exact architecture/process/compliance details, or brand assets.
 
-For every PPTX template registration request, measure whether image components are structural enough to require slots.
+## Image-Area Review Gate
 
-1. Calculate deck-level image component area ratio:
+For template registration, measure image use as a **review gate**, not an automatic generation condition. A high ratio means the template needs asset-role review and possibly a slot catalog; it never means every image should be regenerated.
 
-   ```text
-   deck_image_ratio = sum(min(slide_image_area, slide_area)) / (slide_area * slide_count)
-   ```
+Calculate visible image area as the union of clipped visible image polygons on each slide:
 
-2. Count picture/raster components by visible area, not by object count. Include PNG/JPEG/bitmap pictures, non-editable EMF/WMF/SVG picture shapes, and picture placeholders that carry layout meaning. Use the visible intersection with the slide bounds when possible; ignore fully hidden or fully off-slide items.
-3. Cap each slide's counted image area at that slide's full area so overlapping images cannot push the deck above 100%.
-4. Report the measured percentage and the most image-heavy slide types or slide numbers before stating the decision.
+```text
+slide_visible_image_area = area(union(clip(each_visible_image_polygon, slide_bounds)))
+deck_image_ratio = sum(slide_visible_image_area) / sum(slide_area)
+```
+
+Measurement rules:
+
+- Use one coordinate system throughout the calculation, preferably EMU; convert only for reporting.
+- Apply crop and rotation before clipping to slide bounds. Use geometric union so overlapping pictures are counted once.
+- Include PNG/JPEG/bitmap pictures, non-editable EMF/WMF/SVG picture shapes, picture fills, and meaningful picture placeholders.
+- Exclude fully hidden/off-slide items and non-rendering placeholders. Report master/background images separately when they repeat across slides.
+- Record tool/version, deck hash, slide size, slide ID, source shape ID, role, clipped area, per-slide union area, ratio, exclusions, and rounding precision.
+- Report the deck ratio and most image-heavy slides before the review decision.
 
 Decision rule:
 
-- If `deck_image_ratio >= 30%`, automatically define image slots during style registration. Add image structure analysis, repeated placement patterns, slot contracts, and prompt-manifest guidance to the style reference.
-- If `deck_image_ratio < 30%`, do not auto-define slots. Tell the user the measured ratio, explain that the style can be registered as native PPT styling only, and define slots only if the user explicitly requests them.
-- If the user explicitly asks for image slots, define them regardless of the measured ratio.
+- `deck_image_ratio >= 30%`: perform role classification and document recurring placements. Define catalog entries only for recurring replaceable assets.
+- `deck_image_ratio < 30%`: native PPT styling is normally sufficient; define slots only when the user requests them or a recurring replaceable asset warrants one.
+- User-requested slots still require role classification, safety review, and an explicit conditional instance.
 
-## Do Not Use
+## Asset Role Classification
 
-- Do not use generated images for text-heavy diagrams, tables, legends, captions, security labels, slide numbers, or anything that must remain editable.
-- Do not send confidential labels, internal system names, customer data, source code, screenshots, credentials, PII, or security markings into an image-generation prompt.
-- Do not rely on generated images for exact architecture, process, or compliance details unless the exact labels and connectors are overlaid as native PPT elements.
+Classify every candidate before generation:
+
+| Role | Treatment |
+|---|---|
+| `generative/decorative` | May be generated after sanitization; must not carry essential meaning. |
+| `native-rebuild` | Rebuild with PPT shapes/text; do not generate. |
+| `preserve/reuse` | Reuse only an approved, licensed source asset with provenance; do not synthesize a replacement by default. |
+| `screenshot/evidence` | Preserve the verified source capture and attribution; never fabricate or visually alter evidence. |
+| `brand-protected` | Use only an approved brand asset as a native PPT element in `origin_compat_mode`; never generate it. |
+
+Only `generative/decorative` assets may enter image generation. When classification is uncertain, default to `native-rebuild` or a neutral placeholder.
 
 ## Workflow
 
-1. Read the selected style in `references/styles.md` first.
-2. Build the slide plan with native PPT structure: title, message, hierarchy, footer, badges, diagrams, labels, and callouts.
-3. Add image slots only where raster visuals improve comprehension or atmosphere.
-4. Define a slot contract for every generated/replaceable image.
-5. Convert slot contracts into a prompt manifest. Keep prompts sanitized and reusable.
-6. Generate or select images with the available image-generation tool/model. If generation is unavailable, create native placeholders and deliver the prompt manifest.
-7. Insert images into reserved areas, crop to the declared aspect ratio, and overlay all real text and precise labels as native PPT elements.
-8. Render the deck and inspect readability, safe margins, palette fit, and unwanted generated text/logos.
+1. Read the selected style in `references/styles.md`.
+2. Build the native slide plan first: title, message, hierarchy, footer, badges, diagrams, labels, data, and callouts.
+3. Measure template image area when registering a template, then classify candidate assets.
+4. Define reusable entries in the slot catalog; instantiate only the slots needed by the actual slide plan.
+5. Create and validate a sanitized prompt manifest for each `generative/decorative` instance.
+6. Check model capabilities, generate once, and run slot-level QA. Retry once only for a correctable generation/QA failure.
+7. Embed approved assets, apply the declared fit/focal point, and keep all real text and precise labels native.
+8. Render the deck and inspect crop, layering, contrast, badges, footer, and fallback output.
 
-## Slot Contract
+If generation is unavailable or blocked, use the declared native fallback and retain the prompt manifest. Never block deck delivery on a decorative asset.
 
-Use this compact schema when planning each image slot:
+## Slot Catalog and Instances
+
+A catalog describes reusable possibilities; it does not require every new deck to use every slot. The slide plan creates conditional instances only when the relevant slide and content exist.
+
+Catalog entries define: stable catalog ID, eligible slide types, purpose, role, style tokens, allowed content, forbidden content, and native fallback. Instance IDs must be unique deck-wide and stable across revisions, for example `s01.hero_ai_orchestration`.
+
+Every instance must identify its slide and exact placement. Use either EMU, inches, or normalized slide fractions; do not mix units inside one bounds object. `aspect_ratio` is the physical slot width divided by height, not a phrase such as “wide row.”
+
+## Executable Manifest
 
 ```yaml
-image_slot:
-  id: hero_visual
-  slide_type: cover
-  purpose: scenario-specific metaphor
-  aspect_ratio: "16:9-safe"
-  placement: "right half, behind native title block"
-  output_role: "decorative_or_metaphor"
-  text_in_image: false
-  overlay_native_text: true
-  style_tokens:
-    palette: ["#00C73C", "#253E93", "#F2F8FE"]
-    mood: "clean Korean corporate training"
-    motif: "AI workflow, connected nodes, soft blue-green glow"
-  prompt_inputs:
-    - topic
-    - audience
-    - metaphor
-  forbidden_content:
-    - confidential labels
-    - company-internal system names
-    - real people
-    - readable Korean or English text
-  fallback:
-    - reuse template asset
-    - build native PPT icon-card layout
+manifest_version: 1
+style_id: ai-transformation-playbook
+mode: public_default
+deck:
+  sha256: "<deck-sha256>"
+  slide_size: {width: 10, height: 7.5, unit: in}
+slots:
+  - id: s01.hero_ai_orchestration
+    catalog_slot_id: hero_ai_orchestration
+    slide_id: 1
+    slide_type: cover
+    role: generative/decorative
+    purpose: abstract AI-enabled work orchestration atmosphere
+    bounds: {x: 5.10, y: 0.70, w: 4.30, h: 4.30, unit: in}
+    aspect_ratio: "1:1"
+    fit: cover
+    focal_point: {x: 0.65, y: 0.50, unit: fraction}
+    z_order:
+      above: [background]
+      below: [title, author, footer, security_badge]
+    safe_overlay_regions: []
+    prompt:
+      template_id: style36.hero.v1
+      positive: "Clean corporate AI enablement illustration; abstract workflow nodes; white, signal green, deep blue, and pale-blue palette; generous whitespace."
+      negative: "no readable text, no logos, no people, no UI screenshots, no watermarks, no confidential or customer data"
+      sanitized_inputs:
+        topic: AI-enabled work orchestration
+        audience: corporate learners
+        metaphor: connected abstract workflow nodes
+      sanitization:
+        ruleset: image-prompt-v1
+        status: passed
+        prohibited_matches: []
+    generation:
+      provider: "<record-actual-provider>"
+      model: "<record-actual-model>"
+      model_version: "<record-when-available>"
+      size_px: {width: 1536, height: 1536}
+      seed: null
+      reproducibility: approved_asset_hash
+      capability_check:
+        aspect_ratio: passed
+        requested_size: passed
+        reference_images: not_used
+        transparency: not_required
+    output:
+      path: assets/generated/s01.hero_ai_orchestration.png
+      sha256: "<asset-sha256>"
+      mime: image/png
+      embedded: true
+    fallback:
+      on: [tool_unavailable, policy_block, capability_mismatch, generation_error, qa_fail]
+      action: native_ai_tile
+    qa:
+      status: passed
+      render_path: renders/slide-01.png
+    status: embedded
+    attempts: 1
 ```
 
-Required fields: `id`, `slide_type`, `purpose`, `aspect_ratio`, `placement`, `output_role`, `text_in_image`, `overlay_native_text`, `style_tokens`, `forbidden_content`, and `fallback`.
+For models without deterministic seeds, preserve the approved output path and SHA-256; do not claim prompt-only reproducibility. A cache key must include style ID, instance ID, manifest/template revision, sanitized prompt, model and version, size, seed when supported, and reference-asset hashes.
 
-## Prompt Rules
+## Prompt, Safety, and Brand Rules
 
-- Include the slide purpose, visual metaphor, composition, palette, lighting, camera/illustration style, and negative constraints.
-- Add `no readable text, no logos, no UI screenshots, no watermarks` unless the user explicitly supplies approved safe source material.
-- Keep generated images language-neutral. Add Korean/English wording later as native PPT text.
-- Avoid exact model-specific parameters in the skill. Use the currently available image-generation tool/model and record model, size, and date in working notes when relevant.
-- Cache generated assets by a stable hash of style name, slot id, sanitized prompt, model, size, and revision. Regenerate only when the scenario or style changes.
+- Include purpose, metaphor, composition, palette, lighting/illustration style, whitespace, and negative constraints.
+- Keep prompts language-neutral and use sanitized, generic concepts only. Never send confidential labels, internal system/team/customer names, source code, credentials, PII, screenshots, unpublished data, or security markings.
+- Add all Korean/English wording later as native PPT text. Generated output must contain no readable text, logos, UI screenshots, or watermarks.
+- Keep titles, captions, notes, security labels, logos, architecture labels/connectors, charts, tables, references, footer, page number, author/team, and dates native.
+- Public default mode must use neutral styling and omit copied company/product marks. `origin_compat_mode` is allowed only when the user explicitly requests faithful reproduction and supplies or identifies approved source assets. Record approval/provenance; brand assets remain native and are never prompt inputs.
 
-## Native Overlay Rules
+## Model Capabilities and Failure Handling
 
-Always keep these as PPT-native elements:
+Before generation, verify requested aspect ratio/size, crop tolerance, seed support, transparency need, reference-image policy, and applicable content-policy limits. Adapt the output size or use fallback rather than silently changing slot geometry.
 
-- Titles, subtitles, body text, bullets, captions, and speaker notes
-- Security labels such as `대외비`, `기밀`, `Confidential`
-- Company logos, product logos, and brand marks
-- Architecture node labels, arrows, step numbers, legends, and data labels
-- Tables, charts, compliance mappings, and source references
-- Footer, page number, document name, author/team names, and dates
+State flow:
 
-## QA Checklist
+```text
+planned -> classified -> sanitized -> generated -> qa_passed -> embedded
+                       \-> fallback
+generated -> qa_failed -> retry_once -> qa_passed | fallback
+```
 
-- The generated image fits the slot aspect ratio and has safe margins for overlays.
-- Native text remains readable at final slide size.
-- The image contains no accidental readable text, logo, watermark, PII, customer data, or confidential/security marking.
-- The image palette matches the selected style's exact HEX colors closely enough to feel intentional.
-- Important meaning is not trapped inside pixels; the slide still works if the image is replaced by a placeholder.
-- A rendered slide inspection confirms crop, layering, footer, badges, and contrast.
+- Do not retry policy or safety blocks.
+- Retry at most once for a correctable generation or QA failure, recording both attempts.
+- `preserve/reuse`, `screenshot/evidence`, and `brand-protected` assets require provenance and approval rather than generation.
+- A fallback must preserve slide meaning and layout without the image.
 
-## Starter Slot Types
+## Quantitative QA
 
-General reusable slots:
+- Instance IDs are unique; every instance resolves to one existing slide and one catalog entry.
+- Bounds and rendered aspect-ratio error are at most 1%; crop retains the declared focal point and does not enter protected overlay regions.
+- Effective embedded resolution at placed size is at least 150 PPI; linked external images: 0.
+- Generated readable text, logos, watermarks, PII, customer data, confidential/security markings: 0.
+- Native text remains readable at final slide size; text/image collisions and unintended occlusion: 0.
+- Meaning-bearing labels, lines, axes, cells, arrows, data, and evidence remain native or preserved, never generated.
+- Output path and SHA-256 match the embedded asset; model/version/size and seed-or-approved-hash are recorded.
+- A final rendered-slide inspection confirms palette, contrast, crop, layering, footer, badges, and the native fallback. Record pass/fail per instance and keep the render path as evidence.
 
-- `hero_visual`: cover or section opener visual metaphor
-- `process_visual`: non-text background for a sequence or workflow
-- `concept_metaphor`: abstract scene explaining a theme
-- `architecture_backdrop`: safe decorative environment behind native architecture labels
-- `role_enablement_visual`: people/process illustration without real faces or labels
-- `closing_motif`: simple branded closing image
+## Starter Catalog
 
-For `NCP Cloud Security Training`:
-
-- `architecture_context_visual`: sanitized cloud architecture backdrop, native labels overlaid
-- `attack_chain_backdrop`: abstract threat-flow visual, no exploit specifics or readable labels
-- `security_control_icon_set`: consistent non-branded icon-like visuals for controls
-- `mitre_flow_visual`: abstract matrix/flow background, native ATT&CK/D3FEND labels overlaid
-
-For a future `AX Mindset`-style template:
-
-- `hero_ai_orchestration`: AI transformation metaphor for cover slides
-- `dx_to_ax_bridge`: transition visual from digital transformation to AI transformation
-- `step_process_visual`: scenario-specific process scene behind native step cards
-- `learning_curve_visual`: conceptual upskilling curve with native axis/labels
-- `role_enablement_visual`: role-based enablement illustration without real people
-- `barrier_matrix_visual`: abstract friction/opportunity background for native matrix content
+- `hero_visual` — `generative/decorative`; cover or section-opener atmosphere.
+- `concept_metaphor` — `generative/decorative`; abstract, non-text visual metaphor.
+- `architecture_backdrop` — normally `native-rebuild`; decorative generation only when it contains no topology or evidence.
+- `process_visual`, `learning_curve_visual`, `role_enablement_visual`, `barrier_matrix_visual` — `native-rebuild` unless an approved source asset is explicitly preserved.
+- `architecture_screenshot`, `attack_chain_evidence` — `screenshot/evidence`.
+- `company_logo`, `security_badge` — `brand-protected` and native-only in `origin_compat_mode`.

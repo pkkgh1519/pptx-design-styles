@@ -3,11 +3,13 @@ name: pptx-design-styles
 description: >
   Create distinctive, production-grade PPTX slide decks using 36 modern design styles, including
   Glassmorphism, Neo-Brutalism, Bento Grid, Workshop Playbook, Terminal Workshop,
-  녹빛 클라우드 감시자, 인지 궤도 플레이북, and more. Use for presentations, pitch decks,
+  클라우드 보안 브리핑, AI 전환 플레이북, and more. Use for presentations, pitch decks,
   workshop guides, onboarding decks, tutorial slides, visually striking PPTX decks, scenario-based image slots,
   GPT image-assisted slide assets, visual-metaphor prompts, image-placeholder templates, and PPTX 템플릿 등록.
-  When registering or updating reusable PPTX templates, measure deck-level image component area and apply the 30% slot-definition gate.
-  Also activate for NCP, 클라우드 보안, AX, AI Transformation, 대외비, 기밀, or Korean corporate/security reporting.
+  When registering or updating reusable PPTX templates, measure deck-level visible image area and apply the 30% asset-role review gate.
+  Also activate when a presentation/PPTX/slide/deck request mentions NCP, 클라우드 보안, AX,
+  AI Transformation, 대외비, 기밀, or Korean corporate/security reporting. Do not activate from
+  AX, NCP, NAVER, 대외비, or 기밀 alone without presentation context.
 ---
 
 # PPTX Modern Design Styles Skill
@@ -20,11 +22,12 @@ description: >
 4. For `Workshop Playbook`, inspect `assets/templates/workshop-playbook-template.pptx` with the core pptx skill when the user wants the same pacing, step badges, and guide-style layout rhythm
 5. For `Workshop Playbook (Dark)`, same workflow as Workshop Playbook but apply the dark navy color mapping from Style 33 — structure is identical, only the surface/text/tint colors change
 6. For `Terminal Workshop (Dark)`, inspect `assets/templates/terminal-workshop-template.pptx` with the core pptx skill when the user wants coding workshop / vibe-coding training style with terminal-green accent and monospace titles
-7. For `녹빛 클라우드 감시자`, inspect `assets/templates/ncp-cloud-security-training-template.pptx` with the core pptx skill when the user wants Korean cloud security education, NCP architecture analysis, MITRE ATT&CK/D3FEND mapping, or report-like `대외비` security training slides. Follow the 16:9 white canvas, NanumSquare font system, 녹빛/보안 green accents (`#00C73C`, `#009F0F`, `#07C63C`), top-right `대외비` badge, bottom-left footer, green rounded banners, numbered green callouts, and screenshot-first architecture walkthroughs.
-8. For `인지 궤도 플레이북`, inspect `assets/templates/ax-mindset-enablement-template.pptx` with the core pptx skill when the user wants Korean AX/AI transformation mindset education, enablement programs, role-based training paths, or image-slot-driven corporate learning decks. Follow the 4:3 white canvas, NanumSquare font system, green (`#00C73C`, `#07C63C`) plus deep blue (`#253E93`), top-right `대외비`, bottom-left NIT SERVICE/footer, rounded blue-green cards, icon-led process rows, and scenario-based image slots.
-9. When registering a PPTX template as a new or reusable style, measure the deck-level image component area ratio from picture/raster shapes. If the ratio is **30% or higher**, automatically read `references/image-slot-workflow.md` and include image structure analysis, slot definitions, and prompt-manifest guidance in the style reference. If the ratio is **below 30%**, tell the user the measured ratio and register the style only unless the user explicitly asks for slots.
-10. For scenario-based image slots, read `references/image-slot-workflow.md` before deck planning when the user asks for generated illustrations, GPT/image-model visuals, custom visual metaphors, or image placeholders. Define native PPT text/layout first, then image slot contracts; use generated images only for backgrounds, illustrations, metaphors, or non-text visual structure. If image generation is unavailable, emit the prompt manifest and native placeholders instead of blocking the deck.
-11. After adding, removing, renaming, or renumbering template-backed styles, update the single preview file `preview/modern-pptx-designs.html` as part of the same task. Update the style count, remove stale cards/CSS, add cards for new styles, and verify README/README_ko preview links and file-tree entries point to this file. Do not create numbered preview filenames unless the user explicitly asks.
+7. For `클라우드 보안 브리핑`, inspect `assets/templates/ncp-cloud-security-training-template.pptx` with the core pptx skill when the user wants Korean cloud security education, NCP architecture analysis, MITRE ATT&CK/D3FEND mapping, or report-like security training slides. Follow the 16:9 white canvas, NanumSquare font system, green accents (`#00C73C`, `#009F0F`, `#07C63C`), thin report frame, green rounded banners, numbered green callouts, and screenshot-first architecture walkthroughs.
+8. For `AI 전환 플레이북`, inspect `assets/templates/ax-mindset-enablement-template.pptx` with the core pptx skill when the user wants Korean AX/AI transformation mindset education, enablement programs, role-based training paths, or image-slot-driven corporate learning decks. Follow the 4:3 white canvas, NanumSquare font system, green (`#00C73C`, `#07C63C`) plus deep blue (`#253E93`), rounded blue-green cards, icon-led process rows, and scenario-based image slots.
+9. For Styles 35 and 36, public mode is the default: omit branding and identifiers copied from the source template, including source logos, default `대외비`, original author/team text, and source-company footers. A company or product name explicitly supplied as the presentation subject may remain as native text when relevant and authorized. Use origin compatibility mode only when the user explicitly requests source-faithful branding or classification and confirms they are authorized to use it.
+10. When registering a PPTX template as a new or reusable style, measure deck-level visible image area using clipped image polygons and per-slide geometric union. If the ratio is **30% or higher**, read `references/image-slot-workflow.md`, classify every candidate asset, and define conditional slots only for recurring replaceable assets. The ratio triggers review, never automatic image generation. If the ratio is **below 30%**, report it and register native styling unless the user requests slots or a recurring replaceable asset warrants one.
+11. For scenario-based image slots, read `references/image-slot-workflow.md` before deck planning when the user asks for generated illustrations, GPT/image-model visuals, custom visual metaphors, or image placeholders. Define native PPT text/layout first, then image slot contracts; use generated images only for backgrounds, illustrations, metaphors, or non-text visual structure. If image generation is unavailable, emit the prompt manifest and native placeholders instead of blocking the deck.
+12. After adding, removing, renaming, or renumbering template-backed styles, update the single preview file `preview/modern-pptx-designs.html` as part of the same task. Update the style count, remove stale cards/CSS, add cards for new styles, and verify README/README_ko preview links and file-tree entries point to this file. Do not create numbered preview filenames unless the user explicitly asks.
 
 > **Always** read `references/styles.md` before starting.  
 > If the user hasn't chosen a style, use the recommendation matrix below.
@@ -34,10 +37,18 @@ description: >
 
 ## Style Naming Standards
 
-- Name styles by **visual mood and design metaphor**, not by source file, client, company, or department name.
-- Prefer Korean, concept-first names like `공상과학 홀로그래픽 데이터`, `맥시멀리스트 콜라주`, `터미널 워크숍 (다크)`, `녹빛 클라우드 감시자`, or `인지 궤도 플레이북`.
-- Keep company/product/domain terms such as NCP, NAVER, AX, or `대외비` in triggers, best-for notes, and template origin only when they help selection; do not use them as the public style name unless the user explicitly asks.
-- Good pattern: `<visual metaphor/material> + <domain mood/format>`; avoid raw names like `Company Report Template`.
+- Name styles by **visual mood, generic use, and design metaphor**, not by source file, client, company, or department name.
+- Use natural, locale-appropriate public names while keeping established design terms stable. Generic domains such as cloud security or AI transformation may appear when they improve selection.
+- Keep company/product names and classification labels such as NCP, NAVER, or `대외비` in triggers and template-origin notes only; do not use them as the public style name.
+- Good pattern: `<visual metaphor/material> + <generic use/format>`; avoid raw names like `Company Report Template`.
+
+### Style Identity and Compatibility
+
+- Each template-backed identity record uses an immutable `style_id`; `display_name` is the canonical public name used in lists and recommendations.
+- `aliases` accept earlier or alternate names but are never presented as current names.
+- `origin_compat_mode` is opt-in and follows the authorization rule in step 9.
+- `cloud-security-briefing`: display `클라우드 보안 브리핑`; deprecated alias `녹빛 클라우드 감시자`; native ratio **16:9**.
+- `ai-transformation-playbook`: display `AI 전환 플레이북`; deprecated alias `인지 궤도 플레이북`; native ratio **4:3**.
 
 ---
 
@@ -45,20 +56,21 @@ description: >
 
 | Presentation Goal | Recommended Styles |
 |-------------------|--------------------|
-| Tech / AI / Startup | Glassmorphism, Aurora Neon, Cyberpunk Outline, SciFi Holographic, Dark Command Dashboard, Workshop Playbook (Dark), Terminal Workshop (Dark), 녹빛 클라우드 감시자, 인지 궤도 플레이북 |
+| Tech / AI / Startup | Glassmorphism, Aurora Neon Glow, Cyberpunk Outline, SciFi Holographic Data, Dark Command Dashboard, Workshop Playbook (Dark), Terminal Workshop (Dark) |
 | Corporate / Consulting / Finance | Swiss International, Monochrome Minimal, Editorial Magazine, Architectural Blueprint |
 | Education / Research / History | Dark Academia, Nordic Minimalism, Brutalist Newspaper |
-| Training / Workshop / Onboarding | Workshop Playbook, Workshop Playbook (Dark), Terminal Workshop (Dark), 녹빛 클라우드 감시자, 인지 궤도 플레이북, Swiss International, Bento Grid, Nordic Minimalism |
-| Korean Corporate / Security Report | 녹빛 클라우드 감시자, Swiss International, Monochrome Minimal |
-| Brand / Marketing | Gradient Mesh, Typographic Bold, Duotone Split, Risograph Print |
-| Product / App / UX | Bento Grid, Claymorphism, Pastel Soft UI, Liquid Blob |
-| Entertainment / Gaming | Retro Y2K, Dark Neon Miami, Vaporwave, Memphis Pop |
+| Training / Workshop / Onboarding | Workshop Playbook, Workshop Playbook (Dark), Terminal Workshop (Dark), 클라우드 보안 브리핑, AI 전환 플레이북, Swiss International, Bento Grid, Nordic Minimalism |
+| AI Transformation / Enablement | AI 전환 플레이북, Workshop Playbook, Bento Grid, Swiss International |
+| Korean Corporate / Security Report | 클라우드 보안 브리핑, Swiss International, Monochrome Minimal |
+| Brand / Marketing | Gradient Mesh, Typographic Bold, Duotone Color Split, Risograph Print |
+| Product / App / UX | Bento Grid, Claymorphism, Pastel Soft UI, Liquid Blob Morphing |
+| Entertainment / Gaming | Retro Y2K, Dark Neon Miami, Vaporwave, Memphis Pop Pattern |
 | Eco / Wellness / Culture | Hand-crafted Organic, Nordic Minimalism, Dark Forest Nature |
-| IT Infrastructure / Architecture | 녹빛 클라우드 감시자, 인지 궤도 플레이북, Isometric 3D Flat, Cyberpunk Outline, Architectural Blueprint |
+| IT Infrastructure / Architecture | 클라우드 보안 브리핑, Isometric 3D Flat, Cyberpunk Outline, Architectural Blueprint |
 | Portfolio / Art / Creative | Monochrome Minimal, Editorial Magazine, Risograph Print, Maximalist Collage |
-| Pitch Deck / Strategy | Neo-Brutalism, Duotone Split, Bento Grid, Art Deco Luxe, Dark Command Dashboard |
+| Pitch Deck / Strategy | Neo-Brutalism, Duotone Color Split, Bento Grid, Art Deco Luxe, Dark Command Dashboard |
 | Luxury / Events / Gala | Art Deco Luxe, Monochrome Minimal, Dark Academia |
-| Science / Biotech / Innovation | Liquid Blob, SciFi Holographic, Aurora Neon |
+| Science / Biotech / Innovation | Liquid Blob Morphing, SciFi Holographic Data, Aurora Neon Glow |
 
 ---
 
@@ -100,8 +112,8 @@ description: >
 | 32 | Dark Command Dashboard | Commanding · Dark-UI | Developer pitches, AI/SaaS overviews |
 | 33 | Workshop Playbook (Dark) | Dark · Guided · Trust | Dark workshops, dev onboarding, coding playbooks |
 | 34 | Terminal Workshop (Dark) | Hacker · Terminal · Code | Coding workshops, vibe-coding training, dev education |
-| 35 | 녹빛 클라우드 감시자 | 명료함 · 클라우드 보안 · 교육형 | NCP/cloud security education, architecture walkthroughs, MITRE/D3FEND analysis |
-| 36 | 인지 궤도 플레이북 | 명료함 · 인지 궤도 · 확산형 | AX mindset education, AI adoption programs, role-based training, generated-image slot decks |
+| 35 | 클라우드 보안 브리핑 | 명료함 · 클라우드 보안 · 교육형 | 16:9 native; cloud security education, architecture walkthroughs, MITRE/D3FEND analysis |
+| 36 | AI 전환 플레이북 | 명료함 · AI 전환 · 확산형 | 4:3 native; AI adoption programs, role-based training, generated-image slot decks |
 
 ---
 
@@ -116,6 +128,6 @@ description: >
 - Use **exact HEX values** from `references/styles.md` — approximate colors break the aesthetic
 - For generated image slots, keep all real text, labels, logos, badges, slide numbers, legends, captions, and security markings as native PPT elements
 - Do not include confidential labels, internal system names, real customer data, PII, or security markings in image-generation prompts; sanitize or abstract them before generating assets
-- For template registration, use deck-level visible image area, not picture count, for the 30% image-slot gate; cap each slide's counted image area at that slide's area
+- For template registration, use clipped visible-image polygon union, not picture count or summed picture area, for the 30% asset-role review gate
 
 For detailed color, font, and layout specs per style → **[references/styles.md](references/styles.md)**

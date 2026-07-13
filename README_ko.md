@@ -1,6 +1,6 @@
 # 🎨 PPTX Modern Design Styles Skill
 
-[English](README.md) | [한국어](README_ko.md) | [디자인 미리보기 🖼️](https://corazzon.github.io/pptx-design-styles/preview/modern-pptx-designs.html) | [<span style="color:red">유튜브 영상 가이드</span>](https://youtu.be/5qxrY88lW_Q)
+[English](README.md) | [한국어](README_ko.md) | [공개 디자인 미리보기 🖼️](https://pkkgh1519.github.io/pptx-design-styles/preview/modern-pptx-designs.html) | [로컬 HTML](preview/modern-pptx-designs.html) | [<span style="color:red">유튜브 영상 가이드</span>](https://youtu.be/5qxrY88lW_Q)
 
 <p align="center">
   <a href="https://youtu.be/5qxrY88lW_Q">
@@ -101,8 +101,12 @@ Codex 에이전트 환경에서 디자인 가이드라인을 통합합니다.
 | 32 | Dark Command Dashboard | 지휘감 · 다크 UI | 개발자 피치, AI/SaaS |
 | 33 | Workshop Playbook (Dark) | 다크 · 가이드형 · 신뢰감 | 다크 워크숍, 개발자 온보딩 |
 | 34 | Terminal Workshop (Dark) | 해커 · 터미널 · 코드 | 코딩 워크숍, 개발자 교육 |
-| 35 | 녹빛 클라우드 감시자 | 명료함 · 클라우드 보안 · 교육형 | NCP/클라우드 보안 교육 |
-| 36 | 인지 궤도 플레이북 | 명료함 · AI 전환 · 확산지원 | AX 마인드셋 교육, AI 활용 확산 |
+| 35 | 클라우드 보안 브리핑 | 명료함 · 클라우드 보안 · 교육형 | 클라우드 보안 교육 (기본 16:9) |
+| 36 | AI 전환 플레이북 | 명료함 · AI 전환 · 확산 지원 | AI 활용 확산, 역할별 교육 (기본 4:3) |
+
+이전 이름 `녹빛 클라우드 감시자`와 `인지 궤도 플레이북`은 더 이상 공개 이름으로 쓰지 않지만 호환 별칭으로 인식합니다.
+
+스타일 35와 36의 공개 기본 모드에서는 원본 템플릿에서 복제한 브랜딩과 식별자(원본 로고, 기본 기밀 표지, 작성자·팀 정보, 회사 푸터)를 넣지 않습니다. 사용자가 발표 주제로 명시한 회사·제품명은 권한과 관련성이 있을 때 네이티브 텍스트로 유지할 수 있습니다. 원본 템플릿 요소는 명시적 요청과 권한 확인이 있을 때만 origin compatibility mode로 적용합니다.
 
 ---
 
@@ -118,8 +122,11 @@ pptx-design-styles/
 │   └── templates/        # 일부 스타일용 PPTX 템플릿
 ├── preview/
 │   └── modern-pptx-designs.html
-└── references/
-    └── styles.md         # 전체 사양: HEX 색상, 폰트, 레이아웃, 시그니처 요소
+├── references/
+│   ├── image-slot-workflow.md
+│   └── styles.md         # 전체 사양: HEX 색상, 폰트, 레이아웃, 시그니처 요소
+└── scripts/
+    └── validate_style_registry.py
 ```
 
 ---
@@ -128,22 +135,26 @@ pptx-design-styles/
 
 | 목적 | 추천 스타일 |
 |------|-------------|
-| 테크 / AI / 스타트업 | Glassmorphism, Aurora Neon, Cyberpunk, SciFi Holographic, Dark Command Dashboard, Workshop Playbook (Dark), Terminal Workshop (Dark), 녹빛 클라우드 감시자, 인지 궤도 플레이북 |
-| 기업 / 금융 | Swiss International, Monochrome, Editorial Magazine |
-| 한국 기업 / 보안 보고 | 녹빛 클라우드 감시자, Swiss International, Monochrome Minimal |
-| 교육 / 워크숍 / 온보딩 | Workshop Playbook, Workshop Playbook (Dark), Terminal Workshop (Dark), 녹빛 클라우드 감시자, 인지 궤도 플레이북, Swiss International, Bento Grid |
-| 브랜드 / 마케팅 | Gradient Mesh, Typographic Bold, Duotone Split |
+| 테크 / AI / 스타트업 | Glassmorphism, Aurora Neon Glow, Cyberpunk Outline, SciFi Holographic Data, Dark Command Dashboard, Workshop Playbook (Dark), Terminal Workshop (Dark) |
+| 기업 / 금융 | Swiss International, Monochrome Minimal, Editorial Magazine |
+| 한국 기업 / 보안 보고 | 클라우드 보안 브리핑, Swiss International, Monochrome Minimal |
+| 교육 / 워크숍 / 온보딩 | Workshop Playbook, Workshop Playbook (Dark), Terminal Workshop (Dark), 클라우드 보안 브리핑, AI 전환 플레이북, Swiss International, Bento Grid |
+| AI 전환 / 활용 확산 | AI 전환 플레이북, Workshop Playbook, Bento Grid, Swiss International |
+| 브랜드 / 마케팅 | Gradient Mesh, Typographic Bold, Duotone Color Split |
 | 제품 / 앱 / UX | Bento Grid, Claymorphism, Pastel Soft UI |
-| 엔터테인먼트 / 게임 | Retro Y2K, Dark Neon Miami, Vaporwave, Memphis Pop |
-| 에코 / 웰니스 | Hand-crafted Organic, Nordic Minimalism, Dark Forest |
+| 엔터테인먼트 / 게임 | Retro Y2K, Dark Neon Miami, Vaporwave, Memphis Pop Pattern |
+| 에코 / 웰니스 | Hand-crafted Organic, Nordic Minimalism, Dark Forest Nature |
 | 럭셔리 / 프리미엄 | Art Deco Luxe, Monochrome Minimal, Dark Academia |
-| 과학 / 바이오테크 | Liquid Blob, SciFi Holographic, Aurora Neon |
+| 과학 / 바이오테크 | Liquid Blob Morphing, SciFi Holographic Data, Aurora Neon Glow |
 
 ---
 
 ### 📱 전체 컬렉션 미리보기
+
+[공개 갤러리](https://pkkgh1519.github.io/pptx-design-styles/preview/modern-pptx-designs.html) 또는 [로컬 HTML 디자인 미리보기](preview/modern-pptx-designs.html)에서 36가지 스타일을 모두 확인할 수 있습니다.
+
 <p align="center">
-  <img src="assets/images/full_preview.png" width="100%" alt="Full Collection Preview">
+  <a href="preview/modern-pptx-designs.html"><img src="assets/images/full_preview.png" width="100%" alt="36개 PPTX 디자인 스타일 전체 미리보기"></a>
 </p>
 
 ---
