@@ -1,6 +1,6 @@
 # 🎨 PPTX Modern Design Styles Skill
 
-[English](README.md) | [한국어](README_ko.md) | [공개 디자인 미리보기 🖼️](https://pkkgh1519.github.io/pptx-design-styles/preview/modern-pptx-designs.html) | [로컬 HTML](preview/modern-pptx-designs.html) | [<span style="color:red">유튜브 영상 가이드</span>](https://youtu.be/5qxrY88lW_Q)
+[English](README.md) | [한국어](README_ko.md) | [디자인 미리보기 🖼️](preview/modern-pptx-designs.html) | [<span style="color:red">유튜브 영상 가이드</span>](https://youtu.be/5qxrY88lW_Q)
 
 <p align="center">
   <a href="https://youtu.be/5qxrY88lW_Q">
@@ -151,7 +151,7 @@ pptx-design-styles/
 
 ### 📱 전체 컬렉션 미리보기
 
-[공개 갤러리](https://pkkgh1519.github.io/pptx-design-styles/preview/modern-pptx-designs.html) 또는 [로컬 HTML 디자인 미리보기](preview/modern-pptx-designs.html)에서 36가지 스타일을 모두 확인할 수 있습니다.
+[HTML 디자인 미리보기](preview/modern-pptx-designs.html)에서 36가지 스타일을 모두 확인할 수 있습니다.
 
 <p align="center">
   <a href="preview/modern-pptx-designs.html"><img src="assets/images/full_preview.png" width="100%" alt="36개 PPTX 디자인 스타일 전체 미리보기"></a>

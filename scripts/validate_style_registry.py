@@ -10,7 +10,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_COUNT = 36
-PUBLISHED_PREVIEW = "https://pkkgh1519.github.io/pptx-design-styles/preview/modern-pptx-designs.html"
 IDENTITY_CONTRACTS = (
     (35, "cloud-security-briefing", "클라우드 보안 브리핑", "녹빛 클라우드 감시자", "16:9"),
     (36, "ai-transformation-playbook", "AI 전환 플레이북", "인지 궤도 플레이북", "4:3"),
@@ -94,7 +93,7 @@ def main() -> int:
     preview_text = read("preview/modern-pptx-designs.html")
     readmes = [read("README.md"), read("README_ko.md")]
     workflow_text = read("references/image-slot-workflow.md")
-    ci_text = read(".github/workflows/static.yml")
+    ci_text = read(".github/workflows/validate.yml")
 
     canonical = style_registry(skill_text)
     references = reference_registry(reference_text)
@@ -160,8 +159,8 @@ def main() -> int:
     for filename, content in zip(("README.md", "README_ko.md"), readmes, strict=True):
         if local_preview not in content:
             errors.append(f"{filename}: missing local preview link {local_preview}")
-        if PUBLISHED_PREVIEW not in content:
-            errors.append(f"{filename}: missing published preview link {PUBLISHED_PREVIEW}")
+        if "github.io" in content:
+            errors.append(f"{filename}: stale GitHub Pages link remains")
         if "assets/images/full_preview.png" not in content:
             errors.append(f"{filename}: missing generated full-preview image")
         if "scripts/" not in content or "validate_style_registry.py" not in content:
@@ -231,6 +230,17 @@ def main() -> int:
         ci_text,
     ):
         errors.append("CI workflow: pull-request validator is not pinned to contents: read")
+    if (ROOT / ".github/workflows/static.yml").exists():
+        errors.append("CI workflow: legacy Pages deployment workflow still exists")
+    for pages_token in (
+        "pages: write",
+        "actions/configure-pages",
+        "actions/upload-pages-artifact",
+        "actions/deploy-pages",
+        "github-pages",
+    ):
+        if pages_token in ci_text:
+            errors.append(f"CI workflow: Pages deployment token remains: {pages_token}")
 
     if errors:
         print("Style registry validation failed:", file=sys.stderr)
